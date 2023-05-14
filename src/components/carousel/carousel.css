@@ -1,0 +1,87 @@
+.banner {
+  background-size: cover;
+  background-position: center top;
+  height: 34.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: slideshow 25s infinite;
+  background-size: cover;
+}
+
+@keyframes slideshow {
+  0% {
+    background-image: url("https://res.cloudinary.com/dptfwcnro/image/upload/v1683867706/E-comm%20ATTIREX/carousel1_xdmpbx.jpg");
+  }
+
+  66.67% {
+    background-image: url("https://res.cloudinary.com/dptfwcnro/image/upload/v1683867723/E-comm%20ATTIREX/carousel2_ubxgzo.jpg");
+  }
+  100% {
+    background-image: url("https://res.cloudinary.com/dptfwcnro/image/upload/v1683867713/E-comm%20ATTIREX/carousel3_thepsd.jpg");
+  }
+}
+
+.banner-text {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2.188rem;
+  border-radius: 0.313rem;
+}
+
+.banner-text h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.625rem;
+  color: var(--deep-blue);
+}
+
+.banner-text p {
+  font-size: 1.125rem;
+  margin-bottom: 1.875rem;
+  color: var(--light-blue);
+}
+
+.btn {
+  background-color: var(--deep-blue);
+  color: var(--white);
+  padding: 0.625rem 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--white);
+  color: var(--deep-blue);
+  border: 0.063rem solid var(--deep-blue);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 15.625rem;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .banner-text {
+    padding: 0.938rem;
+  }
+
+  .banner-text h2 {
+    font-size: 0.938rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .banner-text p {
+    font-size: 0.813rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.625rem 0.625rem;
+    font-size: 0.625rem;
+  }
+}

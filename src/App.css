@@ -1,0 +1,16 @@
+.App {
+  font-family: "Libre Baskerville";
+  text-align: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --deep-blue: #121932;
+  --dark-blue: #1c263f;
+  --medium-blue: #293657;
+  --light-blue: #4e5f86;
+  --bright-blue: #7685ab;
+  --white: #fff;
+}

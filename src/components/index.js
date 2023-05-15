@@ -3,3 +3,4 @@ export { Carousel } from "./carousel/Carousel";
 export { Categories } from "./categories/Categories";
 export { SaleBanner } from "./sale/SaleBanner";
 export { ClothingCategories } from "./clothing-categories/ClothingCategories";
+export { Footer } from "./footer/Footer";

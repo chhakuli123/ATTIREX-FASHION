@@ -1,4 +1,4 @@
-import { Carousel, Categories } from "components";
+import { Carousel, Categories, ClothingCategories, SaleBanner } from "components";
 import React from "react";
 
 const HomePage = () => {
@@ -6,6 +6,8 @@ const HomePage = () => {
     <div>
       <Carousel />
       <Categories />
+      <SaleBanner/>
+      <ClothingCategories/>
     </div>
   );
 };

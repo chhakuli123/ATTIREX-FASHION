@@ -14,3 +14,12 @@
   --bright-blue: #7685ab;
   --white: #fff;
 }
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--deep-blue);
+  border-radius: 1rem;
+}

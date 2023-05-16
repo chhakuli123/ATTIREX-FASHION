@@ -6,6 +6,9 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
 export {
   SearchIcon,
   PersonOutlineOutlinedIcon,
@@ -15,4 +18,7 @@ export {
   TwitterIcon,
   InstagramIcon,
   LinkedInIcon,
+  ClearOutlinedIcon,
+  StarRoundedIcon,
+  AddShoppingCartRoundedIcon,
 };

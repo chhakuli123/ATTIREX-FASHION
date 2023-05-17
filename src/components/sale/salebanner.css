@@ -14,11 +14,11 @@
 }
 .sale-image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.2rem;
   justify-items: center;
   align-items: center;
-  margin-top: 0.625rem;
+  margin-top: 0.6rem;
 }
 .sale-image-grid img {
   height: auto;
@@ -29,9 +29,8 @@
 /* For screens smaller than 768px */
 @media (max-width: 767px) {
   .sale {
-    margin: 0.5rem 2rem;
+    margin: 0.5rem 3rem;
   }
-
   .sale-title h2 {
     font-size: 1.5rem;
     margin-top: 1.875rem;

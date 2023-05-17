@@ -1,9 +1,11 @@
-import React from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
 
+import { useProductsData } from "context";
 import "./categories.css";
 
 const Categories = () => {
+  const { dispatch } = useProductsData()
   return (
     <div className="categories">
       <div className="categories-container">
@@ -20,7 +22,14 @@ const Categories = () => {
           />
           <div className="category-overlay">
             <h3>Mens</h3>
-            <Link to="/mens">Shop Now</Link>
+            <Link
+              to="/products"
+              onClick={() =>
+                dispatch({ type: "FILTER_BY_SECTION", payload: "Mens" })
+              }
+            >
+              Shop Now
+            </Link>
           </div>
         </div>
         <div className="small-box-grid">
@@ -32,7 +41,14 @@ const Categories = () => {
 
             <div className="category-overlay">
               <h3>Womens</h3>
-              <Link to="/womens">Shop Now</Link>
+              <Link
+                to="/products"
+                onClick={() =>
+                  dispatch({ type: "FILTER_BY_SECTION", payload: "Womens" })
+                }
+              >
+                Shop Now
+              </Link>
             </div>
           </div>
           <div className="small-box">
@@ -42,7 +58,14 @@ const Categories = () => {
             />
             <div className="category-overlay">
               <h3>Kids</h3>
-              <Link to="/kids">Shop Now</Link>
+              <Link
+                to="/products"
+                onClick={() =>
+                  dispatch({ type: "FILTER_BY_SECTION", payload: "Kids" })
+                }
+              >
+                Shop Now
+              </Link>
             </div>
           </div>
         </div>

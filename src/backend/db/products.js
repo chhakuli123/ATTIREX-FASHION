@@ -12,7 +12,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Blue Shirt",
-    category: "Men's casual",
+    category: "Casual",
+    section: "Mens",
     rating: 3,
     gender: "men",
     price: 1500,
@@ -23,10 +24,57 @@ export const products = [
     description:
       "White micro ditsy printed opaque Formal shirt, has a spread collar, button placket, 1 patch pocket, long regular sleeves, curved hem",
   },
+
+  {
+    _id: uuid(),
+    name: "Black Bomber Jacket",
+    category: "Casual",
+    section: "Mens",
+    rating: 5,
+    gender: "men",
+    price: 3500,
+    originalPrice: 4000,
+    image:
+      "https://res.cloudinary.com/dptfwcnro/image/upload/v1684160852/E-comm%20ATTIREX/Mens-Fashion/istockphoto-1439804198-612x612_upwx0z.jpg",
+    isOutOfStock: true,
+    description:
+      "A stylish black bomber jacket made from high-quality materials. It features a front zipper closure, ribbed cuffs and hem, and multiple pockets. Perfect for adding a cool and edgy touch to your casual outfits.",
+  },
+  {
+    _id: uuid(),
+    name: "Henley Shirt",
+    category: "Casual",
+    section: "Mens",
+    rating: 5,
+    gender: "men",
+    price: 1000,
+    originalPrice: 2000,
+    image:
+      "https://res.cloudinary.com/dptfwcnro/image/upload/v1684231181/E-comm%20ATTIREX/Mens-Fashion/istockphoto-1327456615-612x612_n99hjx.jpg",
+    isOutOfStock: true,
+    description:
+      "A comfortable and casual Henley shirt made from soft cotton fabric. It features a round neckline with a partial button placket and long sleeves. Perfect for a relaxed yet stylish look.",
+  },
+  {
+    _id: uuid(),
+    name: "Cargo Shorts",
+    category: "Casual",
+    section: "Mens",
+    rating: 5,
+    gender: "men",
+    price: 1000,
+    originalPrice: 2000,
+    image:
+      "https://res.cloudinary.com/dptfwcnro/image/upload/v1684251162/E-comm%20ATTIREX/Mens-Fashion/pexels-photo-1306248_eegoas.jpg",
+    isOutOfStock: false,
+    description:
+      "Cargo shorts made from durable fabric with multiple pockets for added functionality. They have a relaxed fit, a mid-length cut, and a versatile design suitable for various casual occasions.",
+  },
   {
     _id: uuid(),
     name: "Blue Denim Jeans",
-    category: "Men's Casual",
+    category: "Casual",
+    section: "Mens",
     rating: 4,
     gender: "men",
     price: 2500,
@@ -37,26 +85,14 @@ export const products = [
     description:
       "Blue washed mid-rise jeans, heavily distressed, has a button and zip closure, waistband with belt loops, five pockets, and cuffed hems",
   },
-  {
-    _id: uuid(),
-    name: "Black T-shirt",
-    category: "Men's casual",
-    rating: 5,
-    gender: "men",
-    price: 3500,
-    originalPrice: 4000,
-    image:
-      "https://res.cloudinary.com/dptfwcnro/image/upload/v1684160852/E-comm%20ATTIREX/Mens-Fashion/istockphoto-1439804198-612x612_upwx0z.jpg",
-    isOutOfStock: true,
-    description: "Black T-shirt has a regular styling.",
-  },
 
-  // 2.Men's Formal
+  // 2.Formal
 
   {
     _id: uuid(),
     name: "White Dress Shirt",
-    category: "Men's formal",
+    category: "Formal",
+    section: "Mens",
     rating: 4.5,
     gender: "men",
     price: 2500,
@@ -66,11 +102,27 @@ export const products = [
     isOutOfStock: false,
     description: "White dress shirt with a classic fit and button-down collar.",
   },
+  {
+    _id: uuid(),
+    name: "Dress Pants",
+    category: "Formal",
+    section: "Mens",
+    rating: 4.5,
+    gender: "men",
+    price: 2500,
+    originalPrice: 3000,
+    image:
+      "https://res.cloudinary.com/dptfwcnro/image/upload/v1684251395/E-comm%20ATTIREX/Mens-Fashion/istockphoto-1425659876-612x612_iethxn.jpg",
+    isOutOfStock: false,
+    description:
+      "Tailored dress pants in a versatile color such as black, navy, or charcoal gray. They feature a flat front, a straight leg cut, and a comfortable fit. Perfect for pairing with dress shirts and blazers for formal occasions.",
+  },
 
   {
     _id: uuid(),
     name: "Navy Blue Suit",
-    category: "Men's formal",
+    category: "Formal",
+    section: "Mens",
     rating: 5,
     gender: "men",
     price: 12000,
@@ -83,7 +135,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Black Tuxedo",
-    category: "Men's formal",
+    category: "Formal",
+    section: "Mens",
     rating: 4.2,
     gender: "men",
     price: 5000,
@@ -96,7 +149,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Charcoal Grey Trousers",
-    category: "Men's formal",
+    category: "Formal",
+    section: "Mens",
     rating: 4.8,
     gender: "men",
     price: 3000,
@@ -107,12 +161,13 @@ export const products = [
     description: "Charcoal grey trousers with a tailored fit and front pleats.",
   },
 
-  // 3.Men's freestyle
+  // 3.Freestyle
 
   {
     _id: uuid(),
     name: "White T-shirt",
-    category: "Men's freestyle",
+    category: "Freestyle",
+    section: "Mens",
     rating: 4.7,
     gender: "men",
     price: 2000,
@@ -125,7 +180,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Distressed Denim Jeans",
-    category: "Men's freestyle",
+    category: "Freestyle",
+    section: "Mens",
     rating: 4.9,
     gender: "men",
     price: 3500,
@@ -144,7 +200,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Sports Bra",
-    category: "Women's activewear",
+    category: "Active Wear",
+    section: "Womens",
     rating: 4.5,
     gender: "women",
     price: 1500,
@@ -158,7 +215,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Leggings",
-    category: "Women's activewear",
+    category: "Active Wear",
+    section: "Womens",
     rating: 4.8,
     gender: "women",
     price: 2500,
@@ -172,7 +230,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Running Shorts",
-    category: "Women's activewear",
+    category: "Active Wear",
+    section: "Womens",
     rating: 4.6,
     gender: "women",
     price: 1800,
@@ -186,7 +245,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Tank Top",
-    category: "Women's activewear",
+    category: "Active Wear",
+    section: "Womens",
     rating: 4.2,
     gender: "women",
     price: 1200,
@@ -201,7 +261,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Floral Maxi Dress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.7,
     gender: "women",
     price: 3500,
@@ -215,7 +276,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Bodycon Black Dress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.9,
     gender: "women",
     price: 4500,
@@ -229,7 +291,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Wrap Dress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.6,
     gender: "women",
     price: 3000,
@@ -243,7 +306,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Midi Sundress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.3,
     gender: "women",
     price: 2500,
@@ -257,7 +321,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Off-Shoulder Dress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.8,
     gender: "women",
     price: 4000,
@@ -271,7 +336,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Lace Cocktail Dress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.5,
     gender: "women",
     price: 5000,
@@ -285,7 +351,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Boho Print Dress",
-    category: "Women's dresses",
+    category: "Dresses",
+    section: "Womens",
     rating: 4.2,
     gender: "women",
     price: 2800,
@@ -300,7 +367,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Tailored Blazer",
-    category: "Women's office wear",
+    category: "Office Wear",
+    section: "Womens",
     rating: 4.7,
     gender: "women",
     price: 4500,
@@ -314,7 +382,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Pencil Skirt",
-    category: "Women's office wear",
+    category: "Office Wear",
+    section: "Womens",
     rating: 4.9,
     gender: "women",
     price: 3000,
@@ -328,7 +397,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Button-Up Shirt",
-    category: "Women's office wear",
+    category: "Office Wear",
+    section: "Womens",
     rating: 4.6,
     gender: "women",
     price: 2500,
@@ -342,7 +412,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Wide-Leg Trousers",
-    category: "Women's office wear",
+    category: "Office Wear",
+    section: "Womens",
     rating: 4.8,
     gender: "women",
     price: 4000,
@@ -358,7 +429,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Denim Jacket",
-    category: "Women's casual wear",
+    category: "Casual",
+    section: "Womens",
     rating: 4.5,
     gender: "women",
     price: 3500,
@@ -372,7 +444,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Graphic T-Shirt",
-    category: "Women's casual wear",
+    category: "Casual",
+    section: "Womens",
     rating: 4.8,
     gender: "women",
     price: 1500,
@@ -386,7 +459,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Jumpsuit",
-    category: "Women's casual wear",
+    category: "Casual",
+    section: "Womens",
     rating: 4.2,
     gender: "women",
     price: 2500,
@@ -401,7 +475,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Striped Top",
-    category: "Women's tops",
+    category: "Tops",
+    section: "Womens",
     rating: 4.7,
     gender: "women",
     price: 2500,
@@ -414,7 +489,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Off-Shoulder Crop Top",
-    category: "Women's tops",
+    category: "Tops",
+    section: "Womens",
     rating: 4.9,
     gender: "women",
     price: 1800,
@@ -428,7 +504,8 @@ export const products = [
   {
     _id: uuid(),
     name: "Ruffled  Top",
-    category: "Women's tops",
+    category: "Tops",
+    section: "Womens",
     rating: 4.6,
     gender: "women",
     price: 2000,
@@ -446,6 +523,7 @@ export const products = [
     _id: uuid(),
     name: "Colorful Hoodie",
     category: "Kids' fashion",
+    section: "Kids",
     rating: 4.5,
     gender: "kids",
     price: 1500,
@@ -460,6 +538,7 @@ export const products = [
     _id: uuid(),
     name: "Printed T-Shirt",
     category: "Kids' fashion",
+    section: "Kids",
     rating: 4.8,
     gender: "kids",
     price: 800,
@@ -474,6 +553,7 @@ export const products = [
     _id: uuid(),
     name: "Denim Overalls",
     category: "Kids' fashion",
+    section: "Kids",
     rating: 4.6,
     gender: "kids",
     price: 2000,
@@ -488,6 +568,7 @@ export const products = [
     _id: uuid(),
     name: "Striped Dress",
     category: "Kids' fashion",
+    section: "Kids",
     rating: 4.2,
     gender: "kids",
     price: 1800,

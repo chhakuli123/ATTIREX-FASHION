@@ -16,13 +16,13 @@
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.25rem;
-  margin-top: 0.625rem;
+  grid-gap: 1.2rem;
+  margin-top: 0.6rem;
 }
 
 .big-box {
   grid-column: 1 / span 1;
-  height: 31.875rem;
+  height: 31.8rem;
   position: relative;
   transition: transform 0.2s ease-in-out;
   transform-origin: center;
@@ -43,15 +43,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1.25rem;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .category-overlay h3 {
-  margin: 0 0 0.625rem 0;
-  font-size: 1.75rem;
+  margin: 0 0 0.6rem 0;
+  font-size: 1.7rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--white);
@@ -60,10 +60,10 @@
 .category-overlay a {
   background-color: var(--white);
   color: var(--deep-blue);
-  padding: 0.625rem 1.25rem;
+  padding: 0.6rem 1.2rem;
   text-transform: uppercase;
   font-weight: 700;
-  border-radius: 1.25rem;
+  border-radius: 1.2rem;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
@@ -77,11 +77,11 @@
 .small-box-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 0.5625rem;
+  grid-gap: 0.5rem;
 }
 
 .small-box {
-  height: 15.625rem;
+  height: 15.6rem;
   position: relative;
   transition: transform 0.2s ease-in-out;
   transform-origin: center;
@@ -99,7 +99,7 @@
 @media screen and (max-width: 767px) {
   .categories-container h2 {
     font-size: 1.5rem;
-    margin-top: 1.875rem;
+    margin-top: 1.8rem;
   }
 
   .categories-block-note {
@@ -111,30 +111,30 @@
 
   .container {
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 0.625rem;
+    grid-gap: 0.6rem;
   }
 
   .big-box {
     grid-column: 1 / span 1;
-    height: 9.375rem;
+    height: 9.3rem;
   }
 
   .small-box {
-    height: 9.375rem;
+    height: 9.3rem;
   }
 
   .category-overlay h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .category-overlay a {
     padding: 0.625rem 0.625rem;
-    font-size: 0.625rem;
+    font-size: 0.6rem;
   }
 }
 
 @media screen and (min-width: 768px) {
   .categories {
-    margin: 3.125rem 6.25rem 0rem 6.25rem;
+    margin: 3.1rem 6.2rem 0rem 6.2rem;
   }
 }

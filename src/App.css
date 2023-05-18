@@ -13,6 +13,8 @@
   --light-blue: #4e5f86;
   --bright-blue: #7685ab;
   --white: #fff;
+  --star-bg: #30ab30;
+  --star-color: #fcd53f;
 }
 ::-webkit-scrollbar {
   background-color: transparent;

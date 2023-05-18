@@ -1,0 +1,27 @@
+.App {
+  font-family: "Libre Baskerville";
+  text-align: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --deep-blue: #121932;
+  --dark-blue: #1c263f;
+  --medium-blue: #293657;
+  --light-blue: #4e5f86;
+  --bright-blue: #7685ab;
+  --white: #fff;
+  --star-bg: #30ab30;
+  --star-color: #fcd53f;
+}
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--deep-blue);
+  border-radius: 1rem;
+}

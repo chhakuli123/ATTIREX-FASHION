@@ -1,24 +1,38 @@
 import React, { useState } from "react";
 
-import { useProductsData } from "context";
 import "./filterssidebar.css";
+import { useFilter } from "context";
+import {
+  CLEAR_FILTERS,
+  FILTER_BY_CATEGORY,
+  FILTER_BY_SECTION,
+  SORT_BY_RATING,
+  SORT_PRODUCTS,
+  UPDATE_PRICE_RANGE,
+} from "utils";
 
 const FiltersSidebar = () => {
-  const { state, dispatch } = useProductsData();
+  const { state, dispatch } = useFilter();
   const { selectedSections, selectedCategory, sortByPrice } = state;
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-
+  const maxValue = state.products.reduce(
+    (acc, curr) => (Number(curr.price) > acc ? Number(curr.price) : acc),
+    0
+  );
   // Action dispatcher functions
+  const handleSortProducts = (sortingString) => {
+    dispatch({ type: SORT_PRODUCTS, payload: sortingString });
+  };
   const handleSortByRating = (rating) => {
-    dispatch({ type: "SORT_BY_RATING", payload: rating });
+    dispatch({ type: SORT_BY_RATING, payload: rating });
   };
 
   const handleSectionToggle = (section) => {
-    dispatch({ type: "FILTER_BY_SECTION", payload: section });
+    dispatch({ type: FILTER_BY_SECTION, payload: section });
   };
 
   const handleCategoryFilter = (category) => {
-    dispatch({ type: "FILTER_BY_CATEGORY", payload: category });
+    dispatch({ type: FILTER_BY_CATEGORY, payload: category });
   };
 
   return (
@@ -40,7 +54,7 @@ const FiltersSidebar = () => {
             )}
             <span
               className="filter-clear-button"
-              onClick={() => dispatch({ type: "CLEAR_FILTERS" })}
+              onClick={() => dispatch({ type: CLEAR_FILTERS })}
             >
               CLEAR
             </span>
@@ -56,9 +70,7 @@ const FiltersSidebar = () => {
                 name="priceSort"
                 value="highToLow"
                 checked={sortByPrice === "highToLow"}
-                onChange={() =>
-                  dispatch({ type: "SORT_PRODUCTS", payload: "highToLow" })
-                }
+                onChange={() => handleSortProducts("highToLow")}
               />
               <label htmlFor="highToLow">Price: High to Low</label>
             </div>
@@ -70,9 +82,7 @@ const FiltersSidebar = () => {
                 name="priceSort"
                 value="lowToHigh"
                 checked={sortByPrice === "lowToHigh"}
-                onChange={() =>
-                  dispatch({ type: "SORT_PRODUCTS", payload: "lowToHigh" })
-                }
+                onChange={() => handleSortProducts("lowToHigh")}
               />
               <label htmlFor="lowToHigh">Price: Low to High</label>
             </div>
@@ -83,9 +93,7 @@ const FiltersSidebar = () => {
                 name="priceSort"
                 value="aToz"
                 checked={sortByPrice === "aToz"}
-                onChange={() =>
-                  dispatch({ type: "SORT_PRODUCTS", payload: "aToz" })
-                }
+                onChange={() => handleSortProducts("aToz")}
               />
               <label htmlFor="aToz">Category: A to Z</label>
             </div>
@@ -96,9 +104,7 @@ const FiltersSidebar = () => {
                 name="priceSort"
                 value="zToa"
                 checked={sortByPrice === "zToa"}
-                onChange={() =>
-                  dispatch({ type: "SORT_PRODUCTS", payload: "zToa" })
-                }
+                onChange={() => handleSortProducts("zToa")}
               />
               <label htmlFor="zToa">Category: Z to A</label>
             </div>
@@ -109,11 +115,12 @@ const FiltersSidebar = () => {
             <span className="filter-heading">SLIDER</span>
             <input
               type="range"
-              min="800"
-              max="12000"
+              min="0"
+              max={maxValue}
+              value={state.priceRange.max}
               onChange={(e) =>
                 dispatch({
-                  type: "UPDATE_PRICE_RANGE",
+                  type: UPDATE_PRICE_RANGE,
                   payload: {
                     min: 0,
                     max: parseInt(e.target.value),
@@ -121,7 +128,13 @@ const FiltersSidebar = () => {
                 })
               }
             />
+            <div className="filter-slider-label">
+            <p className="text-secondary-color">0</p>
+            <p className='text-secondary-color'>{Math.ceil(maxValue / 2)}</p>
+            <p className='text-secondary-color'>{maxValue}</p>
           </div>
+          </div>
+
           <hr />
           {/*--------------------------------- Filter By Rating----------------------------------------- */}
           <div className="filter-by-rating">
@@ -288,7 +301,7 @@ const FiltersSidebar = () => {
         >
           <img
             className="svg-icon"
-            src="https://static-00.iconduck.com/assets.00/filter-icon-512x430-exhzryxa.png"
+            src="https://res.cloudinary.com/dptfwcnro/image/upload/v1684394768/E-comm%20ATTIREX/icons/filter-icon-512x430-exhzryxa_eoyxtk.png"
             alt=""
           />
           FILTERS
@@ -296,7 +309,7 @@ const FiltersSidebar = () => {
         <div>
           <img
             className="svg-icon"
-            src="https://static-00.iconduck.com/assets.00/edit-clear-all-symbolic-icon-256x256-ivqmmjo2.png"
+            src="https://res.cloudinary.com/dptfwcnro/image/upload/v1684394755/E-comm%20ATTIREX/icons/edit-clear-all-symbolic-icon-256x256-ivqmmjo2_j7vmgl.png"
             alt=""
           />
           <span

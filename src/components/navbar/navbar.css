@@ -6,6 +6,7 @@ nav {
   z-index: 6;
   position: sticky;
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .nav-container {
@@ -50,6 +51,7 @@ nav {
   font-size: 0.875rem;
   padding: 0.5rem;
   width: 100%;
+  outline: none !important;
 }
 
 .nav-search-form button {

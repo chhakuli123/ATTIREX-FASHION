@@ -5,13 +5,22 @@ import {
   SearchIcon,
   PersonOutlineOutlinedIcon,
   FavoriteBorderOutlinedIcon,
-  ShoppingBagOutlinedIcon
+  ShoppingBagOutlinedIcon,
 } from "assets";
 import "./navbar.css";
+import { useFilter } from "context";
+import { SEARCH_PRODUCTS } from "utils";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { dispatch } = useFilter();
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.value;
+    dispatch({ type: SEARCH_PRODUCTS, payload: searchValue });
+    navigate("/products");
+  };
   return (
     <nav>
       <div className="nav-container">
@@ -22,12 +31,16 @@ const Navbar = () => {
         </div>
         <div className="nav-right">
           <form className="nav-search-form">
-            <input type="text" placeholder="Search for items" />
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search for items"
+              onChange={handleSearch}
+            />
             <button type="submit">
               <SearchIcon className="nav-icon" />
             </button>
           </form>
-
           <div className="nav-icons-container">
             <span className="nav-icons" onClick={() => navigate("/signinpage")}>
               <PersonOutlineOutlinedIcon className="nav-icon" />

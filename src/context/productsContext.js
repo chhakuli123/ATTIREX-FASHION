@@ -1,12 +1,8 @@
-import { useReducer } from "react";
-import { useContext } from "react";
-import { createContext, useEffect, useState } from "react";
-import { filterReducer, initialState } from "reducer";
+import { createContext, useEffect, useState, useContext } from "react";
 
-export const ProoductsDataContext = createContext();
+const ProductsDataContext = createContext();
+
 const ProductsDataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(filterReducer, initialState);
-
   const [productsData, setProductsData] = useState([]);
 
   const getProductsData = async () => {
@@ -22,13 +18,14 @@ const ProductsDataProvider = ({ children }) => {
   useEffect(() => {
     getProductsData();
   }, []);
+
   return (
-    <ProoductsDataContext.Provider value={{ productsData, state, dispatch }}>
+    <ProductsDataContext.Provider value={{ productsData }}>
       {children}
-    </ProoductsDataContext.Provider>
+    </ProductsDataContext.Provider>
   );
 };
 
-const useProductsData = () => useContext(ProoductsDataContext);
+const useProductsData = () => useContext(ProductsDataContext);
 
 export { useProductsData, ProductsDataProvider };

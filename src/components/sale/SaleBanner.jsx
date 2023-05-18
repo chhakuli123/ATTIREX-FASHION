@@ -1,10 +1,10 @@
 import React from "react";
 import "./salebanner.css";
 import { useNavigate } from "react-router-dom";
-import { useProductsData } from "context";
+import { useFilter } from "context";
 
 const SaleBanner = () => {
-  const {dispatch}=useProductsData()
+  const {dispatch}=useFilter()
   const navigate=useNavigate()
   return (
     <div class="sale">

@@ -2,8 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./clothingcategories.css";
+import { useFilter } from "context";
+import { CLEAR_FILTERS, FILTER_BY_CATEGORY } from "utils";
 
 const ClothingCategories = () => {
+  const { dispatch } = useFilter();
+  const handleCategoryClick = (category) => {
+    dispatch({ type: CLEAR_FILTERS }); 
+    dispatch({ type: FILTER_BY_CATEGORY, payload: category }); 
+  };
   return (
     <div className="clothing-categories-container">
       <div className="categories-title">
@@ -20,7 +27,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay">
             <div className="text">Activewear</div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Active Wear")}
+            >
               Shop Now
             </Link>
           </div>
@@ -32,7 +43,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay category-long">
             <div className="text"> Dresses</div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Dresses")}
+            >
               Shop Now
             </Link>
           </div>
@@ -44,7 +59,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay">
             <div className="text">Office Wear</div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Office Wear")}
+            >
               Shop Now
             </Link>
           </div>
@@ -56,7 +75,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay">
             <div className="text"> Freestyle </div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Freestyle")}
+            >
               Shop Now
             </Link>
           </div>
@@ -68,7 +91,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay category-small">
             <div className="text">Formal</div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Formal")}
+            >
               Shop Now
             </Link>
           </div>
@@ -80,7 +107,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay category-small">
             <div className="text">Freestyle </div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Freestyle")}
+            >
               Shop Now
             </Link>
           </div>
@@ -92,7 +123,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay category-small">
             <div className="text">Casual</div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Casual")}
+            >
               Shop Now
             </Link>
           </div>
@@ -104,7 +139,11 @@ const ClothingCategories = () => {
           />
           <div className="overlay category-small">
             <div className="text">Tops</div>
-            <Link to="/products" className="button">
+            <Link
+              to="/products"
+              className="button"
+              onClick={() => handleCategoryClick("Tops")}
+            >
               Shop Now
             </Link>
           </div>

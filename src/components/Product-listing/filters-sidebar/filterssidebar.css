@@ -38,6 +38,7 @@ label {
   margin-left: 0.4rem;
   font-size: 1rem;
   color: var(--medium-blue);
+  cursor: pointer;
 }
 .filter-product-sidebar input[type="range"] {
   -webkit-appearance: none;

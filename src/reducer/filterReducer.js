@@ -25,22 +25,16 @@ const filterReducer = (state, action) => {
       return updateProducts(state, action);
     case SORT_PRODUCTS:
       return sortProducts(state, action.payload);
-
     case UPDATE_PRICE_RANGE:
       return updatePriceRange(state, action.payload);
-
     case SORT_BY_RATING:
       return sortByRating(state, action.payload);
-
     case FILTER_BY_SECTION:
       return filterBySection(state, action.payload);
-
     case FILTER_BY_CATEGORY:
       return filterByCategory(state, action.payload);
-
     case CLEAR_FILTERS:
       return clearFilters(state);
-
     default:
       return state;
   }

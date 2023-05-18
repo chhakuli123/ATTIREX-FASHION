@@ -129,10 +129,10 @@ const FiltersSidebar = () => {
               }
             />
             <div className="filter-slider-label">
-            <p className="text-secondary-color">0</p>
-            <p className='text-secondary-color'>{Math.ceil(maxValue / 2)}</p>
-            <p className='text-secondary-color'>{maxValue}</p>
-          </div>
+              <p className="text-secondary-color">0</p>
+              <p className="text-secondary-color">{Math.ceil(maxValue / 2)}</p>
+              <p className="text-secondary-color">{maxValue}</p>
+            </div>
           </div>
 
           <hr />
@@ -141,43 +141,47 @@ const FiltersSidebar = () => {
             <span className="filter-heading">RATINGS</span>
             <div>
               <input
+                id="4stars"
                 type="checkbox"
                 name="4stars"
                 value="4stars"
                 checked={state.sortByRating === "4stars"}
                 onChange={() => handleSortByRating("4stars")}
               />
-              <label>4 ⭐️ and above</label>
+              <label htmlFor="4stars">4 ⭐️ and above</label>
             </div>
             <div>
               <input
+                id="3stars"
                 type="checkbox"
                 name="3stars"
                 value="3stars"
                 checked={state.sortByRating === "3stars"}
                 onChange={() => handleSortByRating("3stars")}
               />
-              <label>3 ⭐️ and above</label>
+              <label htmlFor="3stars">3 ⭐️ and above</label>
             </div>
             <div>
               <input
+                id="2stars"
                 type="checkbox"
                 name="2stars"
                 value="2stars"
                 checked={state.sortByRating === "2stars"}
                 onChange={() => handleSortByRating("2stars")}
               />
-              <label>2 ⭐️ and above</label>
+              <label htmlFor="2stars">2 ⭐️ and above</label>
             </div>
             <div>
               <input
+                id="1stars"
                 type="checkbox"
                 name="1star"
                 value="1star"
                 checked={state.sortByRating === "1stars"}
-                onChange={() => handleSortByRating("1star")}
+                onChange={() => handleSortByRating("1stars")}
               />
-              <label>1 ⭐️ and above</label>
+              <label htmlFor="1stars">1 ⭐️ and above</label>
             </div>
           </div>
           <hr />
@@ -186,33 +190,36 @@ const FiltersSidebar = () => {
             <span className="filter-heading">SECTION</span>
             <div>
               <input
+                id="Womens"
                 type="checkbox"
                 name="Womens"
                 value="Womens"
                 checked={selectedSections.includes("Womens")}
                 onChange={() => handleSectionToggle("Womens")}
               />
-              <label> Women's</label>
+              <label htmlFor="Womens"> Women's</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="Mens"
                 name="Mens"
                 value="Mens"
                 checked={selectedSections.includes("Mens")}
                 onChange={() => handleSectionToggle("Mens")}
               />
-              <label> Men's</label>
+              <label htmlFor="Mens"> Men's</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="Kids"
                 name="Kids"
                 value="Kids"
                 checked={selectedSections.includes("Kids")}
                 onChange={() => handleSectionToggle("Kids")}
               />
-              <label> Kid's</label>
+              <label htmlFor="Kids"> Kid's</label>
             </div>
           </div>
           <hr />
@@ -222,72 +229,79 @@ const FiltersSidebar = () => {
             <div>
               <input
                 type="checkbox"
+                id="activeWear"
                 name="activeWear"
                 value="activeWear"
                 checked={selectedCategory.includes("Active Wear")}
                 onChange={() => handleCategoryFilter("Active Wear")}
               />
-              <label>Active Wear</label>
+              <label htmlFor="activeWear">Active Wear</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="dresses"
                 name="dresses"
                 value="dresses"
                 checked={selectedCategory.includes("Dresses")}
                 onChange={() => handleCategoryFilter("Dresses")}
               />
-              <label>Dresses</label>
+              <label htmlFor="dresses">Dresses</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="tops"
                 name="tops"
                 value="tops"
                 checked={selectedCategory.includes("Tops")}
                 onChange={() => handleCategoryFilter("Tops")}
               />
-              <label>Tops</label>
+              <label htmlFor="tops">Tops</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="officeWear"
                 name="officeWear"
                 value="officeWear"
                 checked={selectedCategory.includes("Office Wear")}
                 onChange={() => handleCategoryFilter("Office Wear")}
               />
-              <label>Office Wear</label>
+              <label htmlFor="officeWear">Office Wear</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="casual"
                 name="casual"
                 value="casual"
                 checked={selectedCategory.includes("Casual")}
                 onChange={() => handleCategoryFilter("Casual")}
               />
-              <label>Casual</label>
+              <label htmlFor="casual">Casual</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="freestyle"
                 name="freestyle"
                 value="freestyle"
                 checked={selectedCategory.includes("Freestyle")}
                 onChange={() => handleCategoryFilter("Freestyle")}
               />
-              <label>Freestyle</label>
+              <label htmlFor="freestyle">Freestyle</label>
             </div>
             <div>
               <input
                 type="checkbox"
+                id="formal"
                 name="formal"
                 value="formal"
                 checked={selectedCategory.includes("Formal")}
                 onChange={() => handleCategoryFilter("Formal")}
               />
-              <label>Men's Formal</label>
+              <label htmlFor="formal">Men's Formal</label>
             </div>
           </div>
         </div>

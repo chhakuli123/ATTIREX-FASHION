@@ -47,7 +47,9 @@ const sortProducts = (state, payload) => {
     return {
       ...state,
       sortByPrice: payload,
-      filteredProducts: [...state.products],
+      filteredProducts: [...state.products].sort((a, b) =>
+        b.name.localeCompare(a.name)
+      ),
     };
   }
   return {

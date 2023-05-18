@@ -1,20 +1,24 @@
 import React from "react";
-
-import { useProductsData } from "context";
-import {FiltersSidebar,ProductCard} from "components"
+import { useFilter } from "context";
+import { FiltersSidebar, ProductCard } from "components";
 
 const ProductSection = () => {
-  const {state}=useProductsData()
+  const { state } = useFilter();
 
   return (
     <div className="product-section">
-   <FiltersSidebar/>
+      <FiltersSidebar />
       <div className="product-list">
-        {state.filteredProducts.map((product) => (
-         <ProductCard product={product}/>
-        ))}
+        {state.filteredProducts.length === 0 ? (
+          <h1>Product does not found...</h1>
+        ) : (
+          state.filteredProducts.map((product) => (
+            <ProductCard product={product} key={product._id} />
+          ))
+        )}
       </div>
     </div>
   );
 };
-export  {ProductSection};
+
+export { ProductSection };

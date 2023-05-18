@@ -1,11 +1,12 @@
 import React  from "react";
 import { Link } from "react-router-dom";
 
-import { useProductsData } from "context";
 import "./categories.css";
+import { useFilter } from "context";
+import { FILTER_BY_SECTION } from "utils";
 
 const Categories = () => {
-  const { dispatch } = useProductsData()
+  const { dispatch } = useFilter()
   return (
     <div className="categories">
       <div className="categories-container">
@@ -25,7 +26,7 @@ const Categories = () => {
             <Link
               to="/products"
               onClick={() =>
-                dispatch({ type: "FILTER_BY_SECTION", payload: "Mens" })
+                dispatch({ type: FILTER_BY_SECTION, payload: "Mens" })
               }
             >
               Shop Now
@@ -44,7 +45,7 @@ const Categories = () => {
               <Link
                 to="/products"
                 onClick={() =>
-                  dispatch({ type: "FILTER_BY_SECTION", payload: "Womens" })
+                  dispatch({ type: FILTER_BY_SECTION, payload: "Womens" })
                 }
               >
                 Shop Now
@@ -61,7 +62,7 @@ const Categories = () => {
               <Link
                 to="/products"
                 onClick={() =>
-                  dispatch({ type: "FILTER_BY_SECTION", payload: "Kids" })
+                  dispatch({ type: FILTER_BY_SECTION, payload: "Kids" })
                 }
               >
                 Shop Now

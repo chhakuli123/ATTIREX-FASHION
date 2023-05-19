@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
   background-color: var(--white);
   box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;

@@ -7,3 +7,4 @@ export { Footer } from "./footer/Footer";
 export { ProductSection } from "./Product-listing/ProductSection";
 export { FiltersSidebar } from "./Product-listing/filters-sidebar/FiltersSidebar";
 export { ProductCard } from "./Product-listing/product-card/ProductCard";
+export { ProductDetails } from "./product-details/ProductDetails";

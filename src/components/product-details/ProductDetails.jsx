@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./productdetails.css";
 import {
   AddShoppingCartRoundedIcon,
+  CheckCircleIcon,
   FavoriteBorderOutlinedIcon,
+  LocalOfferIcon,
+  LocalShippingIcon,
   StarRoundedIcon,
 } from "assets";
 import { useProductsData } from "context";

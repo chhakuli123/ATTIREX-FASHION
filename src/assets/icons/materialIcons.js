@@ -9,6 +9,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRounded";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 export {
   SearchIcon,
   PersonOutlineOutlinedIcon,
@@ -21,4 +24,7 @@ export {
   ClearOutlinedIcon,
   StarRoundedIcon,
   AddShoppingCartRoundedIcon,
+  LocalShippingIcon,
+  LocalOfferIcon,
+  CheckCircleIcon,
 };

@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { HomePage } from "pages";
+import { HomePage, ProductsPage, ProductDetailsPage } from "pages";
 import { Footer, Navbar } from "components";
-import ProductsPage from "pages/ProductsPage";
 function App() {
   return (
     <div className="App">
@@ -11,6 +10,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route
+          path="/productDetails/:productId"
+          element={<ProductDetailsPage />}
+        />
       </Routes>
       <Footer />
     </div>

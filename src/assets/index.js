@@ -10,4 +10,7 @@ export {
   ClearOutlinedIcon,
   StarRoundedIcon,
   AddShoppingCartRoundedIcon,
+  LocalShippingIcon,
+  LocalOfferIcon,
+  CheckCircleIcon,
 } from "./icons/materialIcons";

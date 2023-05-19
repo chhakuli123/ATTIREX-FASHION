@@ -6,8 +6,10 @@ import {
   FavoriteBorderOutlinedIcon,
   StarRoundedIcon,
 } from "assets";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const navigate=useNavigate()
   const {
     _id,
     name,
@@ -20,7 +22,7 @@ const ProductCard = ({ product }) => {
   } = product;
   return (
     <div>
-      <div className="product-card" key={_id}>
+      <div className="product-card" key={_id} onClick={()=>navigate(`/productDetails/${_id}`)} >
         <img src={image} alt={name} />
         {isOutOfStock && <span className="card-badge">Out of stock</span>}
         <span className="whishlist-heart">

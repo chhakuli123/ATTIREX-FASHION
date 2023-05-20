@@ -12,6 +12,8 @@ import AddShoppingCartRoundedIcon from "@mui/icons-material/AddShoppingCartRound
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 export {
   SearchIcon,
   PersonOutlineOutlinedIcon,
@@ -27,4 +29,6 @@ export {
   LocalShippingIcon,
   LocalOfferIcon,
   CheckCircleIcon,
+  DeleteOutlinedIcon,
+  ShoppingCartCheckoutIcon,
 };

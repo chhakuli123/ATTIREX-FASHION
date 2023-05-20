@@ -1,5 +1,5 @@
 nav {
-  height: 3.75rem;
+  height: 4rem;
   padding: 0 1.25rem;
   box-shadow: 0 0 0.625rem rgb(116, 114, 114);
   top: 0;
@@ -18,11 +18,11 @@ nav {
 .nav-left {
   display: flex;
   align-items: center;
-  margin: 0.9375rem 0;
+  margin: 0.9rem 0;
 }
 
 .nav-logo {
-  font-size: 1.875rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--deep-blue);
   text-transform: uppercase;
@@ -30,49 +30,106 @@ nav {
   margin-right: 1.25rem;
 }
 
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin-top: 0.4rem;
+  justify-content: center;
+  margin-left: 0.8rem;
+}
+
+.nav-menu li {
+  margin-right: 0.7rem;
+}
+
+.nav-menu li span {
+  font-weight: bold;
+  color: var(--medium-blue);
+  text-decoration: none;
+}
+
+.nav-home-btn {
+  font-size: 1.3rem;
+}
+.nav-buy-now {
+  font-size: 1.3rem;
+  margin-left: 0.4rem;
+}
+
 .nav-right {
   display: flex;
   align-items: center;
-  margin: 0.9375rem 0;
+  margin: 0.9rem 0;
 }
 
 .nav-search-form {
-  background-color: #f5f5f6;
-  border-radius: 0.3125rem;
-  display: inline-flex;
+  background-color: var(--search-input);
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
   height: 1.5rem;
-  padding: 0.375rem;
+  padding: 0.5rem;
   width: 21rem;
 }
 
 .nav-search-form input {
   background-color: transparent;
   border: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding: 0.5rem;
   width: 100%;
   outline: none !important;
 }
 
-.nav-search-form button {
-  outline: none;
-  border: none;
-  cursor: pointer;
+.badge-cart {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: var(--danger);
+  color: var(--white);
   font-size: 1rem;
-  background: transparent;
+  font-weight: bold;
+}
+.badge-wishlist {
+  position: absolute;
+  top: -0.5rem;
+  right: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: var(--danger);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-.nav-search-form button:hover {
-  color: var(--bright-blue);
+.nav-icons-container {
+  position: relative;
 }
 
 .nav-icons {
-  margin-left: 0.9375rem;
+  margin-left: 0.9rem;
   color: var(--deep-blue);
 }
 
 .nav-icons .nav-icon {
-  font-size: 1.75rem;
+  font-size: 2rem;
+}
+.nav-search-form .nav-icon {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+.nav-search-form .nav-icon:hover {
+  color: var(--bright-blue);
 }
 
 .nav-icons:hover {
@@ -94,7 +151,9 @@ nav {
     font-size: 1.5625rem;
     margin-left: 0.375rem;
   }
-
+  .nav-menu {
+    display: none;
+  }
   .nav-icons {
     margin-left: 0.4375rem;
   }
@@ -135,5 +194,10 @@ nav {
 
   .mobile-search-form button:hover {
     color: var(--bright-blue);
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .nav-menu {
+    display: none;
   }
 }

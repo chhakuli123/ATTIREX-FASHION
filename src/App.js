@@ -1,7 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { HomePage, ProductsPage, ProductDetailsPage } from "pages";
+import {
+  HomePage,
+  ProductsPage,
+  ProductDetailsPage,
+  WishlistPage,
+} from "pages";
 import { Footer, Navbar } from "components";
 function App() {
   return (
@@ -14,6 +19,7 @@ function App() {
           path="/productDetails/:productId"
           element={<ProductDetailsPage />}
         />
+        <Route path="/wishlist" element={<WishlistPage />} />
       </Routes>
       <Footer />
     </div>

@@ -13,4 +13,6 @@ export {
   LocalShippingIcon,
   LocalOfferIcon,
   CheckCircleIcon,
+  DeleteOutlinedIcon,
+  ShoppingCartCheckoutIcon,
 } from "./icons/materialIcons";

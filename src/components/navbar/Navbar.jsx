@@ -8,12 +8,14 @@ import {
   ShoppingBagOutlinedIcon,
 } from "assets";
 import "./navbar.css";
-import { useFilter } from "context";
+import { useFilter, useWishlist } from "context";
 import { SEARCH_PRODUCTS } from "utils";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { dispatch } = useFilter();
+  const { wishlistState } = useWishlist();
+  const { wishlist } = wishlistState;
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -28,6 +30,21 @@ const Navbar = () => {
           <span className="nav-logo" onClick={() => navigate("/")}>
             AttireX
           </span>
+          <ul className="nav-menu">
+            <li>
+              <span className="nav-home-btn" onClick={() => navigate("/")}>
+                Home
+              </span>
+            </li>
+            <li>
+              <span
+                className="nav-buy-now"
+                onClick={() => navigate("/products")}
+              >
+                Buy Now
+              </span>
+            </li>
+          </ul>
         </div>
         <div className="nav-right">
           <form className="nav-search-form">
@@ -37,23 +54,21 @@ const Navbar = () => {
               placeholder="Search for items"
               onChange={handleSearch}
             />
-            <button type="submit">
-              <SearchIcon className="nav-icon" />
-            </button>
+            <SearchIcon className="nav-icon" />
           </form>
           <div className="nav-icons-container">
-            <span className="nav-icons" onClick={() => navigate("/signinpage")}>
+            <span className="nav-icons" onClick={() => navigate("/signin")}>
               <PersonOutlineOutlinedIcon className="nav-icon" />
             </span>
-            <span
-              className="nav-icons"
-              onClick={() => navigate("/whishlistpage")}
-            >
+            <span className="nav-icons" onClick={() => navigate("/wishlist")}>
               <FavoriteBorderOutlinedIcon className="nav-icon" />
+              {wishlist.length > 0 && (
+                <span className="badge-wishlist">{wishlist.length}</span>
+              )}
             </span>
             <span
               className="nav-icons nav-icon-large"
-              onClick={() => navigate("/cartpage")}
+              onClick={() => navigate("/cart")}
             >
               <ShoppingBagOutlinedIcon className="nav-icon" />
             </span>
@@ -61,7 +76,11 @@ const Navbar = () => {
         </div>
       </div>
       <div className="mobile-search-form">
-        <input type="text" placeholder="Search for items" />
+        <input
+          type="text"
+          placeholder="Search for items"
+          onChange={handleSearch}
+        />
         <button type="submit">
           <SearchIcon />
         </button>

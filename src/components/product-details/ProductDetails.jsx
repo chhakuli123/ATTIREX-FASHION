@@ -1,27 +1,33 @@
 import React from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./productdetails.css";
 import {
-  AddShoppingCartRoundedIcon,
   CheckCircleIcon,
-  FavoriteBorderOutlinedIcon,
   LocalOfferIcon,
   LocalShippingIcon,
   StarRoundedIcon,
 } from "assets";
-import { useProductsData } from "context";
+import { useProductsData, useWishlist } from "context";
+import { ADD_TO_WISHLIST } from "utils";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { productId } = useParams();
+  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishlist } = wishlistState;
+  const navigate = useNavigate();
 
-  const [quantity, setQuantity] = useState(1);
   const { productsData } = useProductsData();
 
   const product = productsData?.find((product) => {
     return product._id === productId;
   });
+
+  const isFavorite =
+    wishlist &&
+    wishlist.find((wishlistProduct) => wishlistProduct._id === product._id);
+
   return (
     <>
       <div className="product">
@@ -51,17 +57,7 @@ const ProductDetails = () => {
               </p>
             </div>
           </div>
-
           <p className="product-detail-description">{product?.description}</p>
-          <div className="quantity">
-            <button
-              onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}
-            >
-              -
-            </button>
-            {quantity}
-            <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
-          </div>
           <div className="product-detail-tag-msg">
             <span className="tag-msg">
               <LocalShippingIcon /> Fastest Delivery
@@ -75,10 +71,26 @@ const ProductDetails = () => {
           </div>
           <div className="product-btn-container">
             <button className="product-detail-add-to-cart-btn">
-              <AddShoppingCartRoundedIcon className="icon" /> Add to Cart
+              Add to Cart
             </button>
             <button className="product-detail-add-to-whishlist-btn">
-              <FavoriteBorderOutlinedIcon className="icon" /> Add to whishlist
+              {isFavorite ? (
+                <span onClick={() => navigate("/wishlist")}>
+                  Go To Wishlist
+                </span>
+              ) : (
+                <span
+                  onClick={() => {
+                    wishlistDispatch({
+                      type: ADD_TO_WISHLIST,
+                      payload: product,
+                    });
+                    toast.success("Added to wishlist");
+                  }}
+                >
+                  Add To Whishlist
+                </span>
+              )}
             </button>
           </div>
         </div>

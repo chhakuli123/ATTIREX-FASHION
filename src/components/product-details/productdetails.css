@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem auto;
-  max-width: 900px;
+  margin: 4rem auto;
+  max-width: 56.2rem;
   padding: 2rem;
+  border-radius: 0.3rem;
+  box-shadow: 0px 0px 15px var(--boxshadow-color);
 }
 
 .product .left {
@@ -15,7 +17,7 @@
 .right {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 3.1rem;
   gap: 1rem;
 }
 
@@ -24,8 +26,8 @@
 }
 
 .single-card-img {
-  width: 400px;
-  height: 550px;
+  width: 25rem;
+  height: 31.2rem;
   object-fit: cover;
 }
 
@@ -59,7 +61,7 @@
 }
 
 .product-detail-rating p {
-  margin-right: 5px;
+  margin-right: 0.3rem;
   font-size: 1.2rem;
 }
 
@@ -70,11 +72,11 @@
 .price {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .product-card-price {
-  margin-right: 10px;
+  margin-right: 0.6rem;
 }
 
 .product-detail-original-price {
@@ -88,25 +90,6 @@
   color: var(--light-blue);
 }
 
-.quantity {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.quantity button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 45px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  background-color: lightgray;
-  cursor: pointer;
-}
-
 .product-detail-tag-msg {
   display: flex;
   flex-direction: column;
@@ -116,41 +99,49 @@
 .tag-msg {
   display: flex;
   align-items: center;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 0.6rem;
+  margin-bottom: 0.1rem;
 }
 
 .tag-msg svg {
-  margin-right: 5px;
+  margin-right: 0.3rem;
 }
 
-.product-detail-add-to-cart-btn,
-.product-detail-add-to-whishlist-btn {
+.product-detail-add-to-cart-btn {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
   justify-content: center;
   background-color: var(--deep-blue);
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   width: 100%;
   color: var(--white);
   padding: 0.5rem 0;
   border-radius: 0.3rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  white-space: nowrap;
 }
-.product-detail-add-to-cart-btn:hover,
-.product-detail-add-to-whishlist-btn:hover {
+.product-detail-add-to-cart-btn:hover {
+  background-color: var(--medium-blue);
+}
+.product-detail-add-to-whishlist-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--white);
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 100%;
   color: var(--deep-blue);
-  border: 0.1rem solid var(--deep-blue);
+  padding: 0.5rem 0;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
-
-.product-detail-add-to-whishlist-btn .icon,
-.product-detail-add-to-cart-btn .icon {
-  margin-right: 0.8rem;
+.product-detail-add-to-whishlist-btn:hover {
+  background-color: var(--medium-blue);
+  color: var(--white);
 }
 @media only screen and (max-width: 768px) {
   .product {
@@ -163,27 +154,22 @@
   }
   .product .left,
   .product .right {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
     width: 100%;
   }
 
   .single-card-img {
-    width: 310px;
-    height: 400px;
+    width: 21.6rem;
+    height: 25rem;
   }
   .product-detail-info-container h1 {
     font-size: 2rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
   }
-  .product-detail-rating,
-  .price {
-    justify-content: center;
+  .product-detail-rating {
+    margin-bottom: 0rem;
   }
 
   .product-detail-description {
-    text-align: center;
     font-size: 1rem;
   }
 

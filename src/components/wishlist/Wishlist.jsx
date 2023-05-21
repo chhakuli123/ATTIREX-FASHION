@@ -29,7 +29,7 @@ const Wishlist = () => {
               onClick={() => navigate("/products")}
             >
               <AddShoppingCartRoundedIcon className="icon" />
-              Add Some Products
+              Add Products
             </button>
           </div>
         ) : (

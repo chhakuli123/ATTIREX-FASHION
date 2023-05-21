@@ -63,7 +63,7 @@ const Navbar = () => {
             <span className="nav-icons" onClick={() => navigate("/wishlist")}>
               <FavoriteBorderOutlinedIcon className="nav-icon" />
               {wishlist.length > 0 && (
-                <span className=" badge-wishlist">{wishlist.length}</span>
+                <span className="badge-wishlist">{wishlist.length}</span>
               )}
             </span>
             <span

@@ -84,7 +84,7 @@ nav {
 .badge-cart {
   position: absolute;
   top: -0.5rem;
-  right: -0.5rem;
+  right: -0.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,20 +148,25 @@ nav {
   }
 
   .nav-logo {
-    font-size: 1.5625rem;
-    margin-left: 0.375rem;
+    font-size: 1.7rem;
+    margin-left: 0.3rem;
   }
   .nav-menu {
     display: none;
   }
+  .nav-icons-container {
+    margin-right: 0.5rem;
+  }
   .nav-icons {
-    margin-left: 0.4375rem;
+    margin-left: 0.5rem;
   }
 
-  .nav-icon {
-    font-size: 1.5625rem;
+  .nav-icons .nav-icon {
+    font-size: 1.8rem;
   }
-
+  .badge-wishlist {
+    right: 1.7rem;
+  }
   .nav-search-form {
     display: none;
   }

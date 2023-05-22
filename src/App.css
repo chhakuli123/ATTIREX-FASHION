@@ -25,6 +25,8 @@
   --danger: #f44336;
   --boxshadow-color: rgba(0, 0, 0, 0.3);
   --search-input: #f5f5f6;
+  --counter-bg: #d1d5db;
+  --counter: #4b5563;
 }
 ::-webkit-scrollbar {
   background-color: transparent;

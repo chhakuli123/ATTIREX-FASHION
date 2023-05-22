@@ -108,19 +108,17 @@
   justify-content: center;
   background-color: var(--deep-blue);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
   width: 100%;
   color: var(--white);
-  padding: 0.3rem 0;
+  padding: 0.4rem 0;
   border-radius: 0.3rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
 .add-to-cart-btn:hover {
-  background-color: var(--white);
-  color: var(--deep-blue);
-  border: 0.1rem solid var(--deep-blue);
+  background-color: var(--medium-blue);
 }
 
 .add-to-cart-btn .icon {

@@ -39,7 +39,7 @@ const Cart = () => {
         // Display an empty cart message if the cart is empty
         <div className="cart-empty-message">
           <img
-            src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png"
+            src="https://res.cloudinary.com/dptfwcnro/image/upload/v1684751671/E-comm%20ATTIREX/Empty/undraw_Add_to_cart_re_wrdo_rciqaa.png"
             alt=""
           />
           <button

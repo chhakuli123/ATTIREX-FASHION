@@ -16,9 +16,10 @@
 }
 
 .cart-empty-message img {
-  height: 32rem;
+  height: 30rem;
   object-fit: cover;
   width: 70%;
+  margin: 0.4rem 0;
 }
 
 .cart-empty-message::before {

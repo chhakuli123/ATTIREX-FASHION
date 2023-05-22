@@ -5,6 +5,7 @@ const ProductsDataContext = createContext();
 const ProductsDataProvider = ({ children }) => {
   const [productsData, setProductsData] = useState([]);
 
+  // Function to fetch the products data
   const getProductsData = async () => {
     try {
       const response = await fetch("/api/products");
@@ -15,6 +16,7 @@ const ProductsDataProvider = ({ children }) => {
     }
   };
 
+  // Use useEffect to fetch the products data when the component mounts
   useEffect(() => {
     getProductsData();
   }, []);
@@ -26,6 +28,7 @@ const ProductsDataProvider = ({ children }) => {
   );
 };
 
+// Custom hook to consume the ProductsDataContext
 const useProductsData = () => useContext(ProductsDataContext);
 
 export { useProductsData, ProductsDataProvider };

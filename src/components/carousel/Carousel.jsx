@@ -12,7 +12,7 @@ const Carousel = () => {
       <div className="banner">
         <div className="banner-text">
           <h2>Get 20% off on your first order!</h2>
-          <p>Use code FIRST20 at checkout</p>
+          <p>Find your perfect shopping experience at ATTIREX</p>
           <Link
             to="/products"
             className="btn"

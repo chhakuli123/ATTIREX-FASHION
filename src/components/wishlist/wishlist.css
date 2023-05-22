@@ -11,19 +11,16 @@
   margin-bottom: 2rem;
 }
 
-.wishlist-product-description {
-  font-size: 0.8rem;
-}
-
 .wishlist-empty-image {
   position: relative;
   text-align: center;
 }
 
 .wishlist-empty-image img {
-  height: 32rem;
+  height: 30rem;
   object-fit: cover;
-  width: 100%;
+  width: 70%;
+  margin: 0.4rem 0;
 }
 
 .wishlist-empty-image::before {
@@ -54,7 +51,7 @@
 }
 
 .whishlist-moveto-products .icon {
-  margin-right: 0.1rem;
+  margin-right: 0.4rem;
 }
 
 .wishlist-items {
@@ -93,7 +90,7 @@
 }
 
 .wishlist-product-description {
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 0.6rem;
 }
 

@@ -9,3 +9,7 @@ export { FiltersSidebar } from "./Product-listing/filters-sidebar/FiltersSidebar
 export { ProductCard } from "./Product-listing/product-card/ProductCard";
 export { ProductDetails } from "./product-details/ProductDetails";
 export { Wishlist } from "./wishlist/Wishlist";
+export { Cart } from "./cart/Cart";
+export { CouponModal } from "./cart/coupon-model/CouponModel";
+export { CartItem } from "./cart/CartItem";
+export { CartSummary } from "./cart/CartSummary";

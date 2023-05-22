@@ -15,4 +15,7 @@ export {
   CheckCircleIcon,
   DeleteOutlinedIcon,
   ShoppingCartCheckoutIcon,
+  FavoriteIcon,
+  SellOutlinedIcon,
+  CloseIcon,
 } from "./icons/materialIcons";

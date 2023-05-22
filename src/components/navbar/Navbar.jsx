@@ -8,7 +8,7 @@ import {
   ShoppingBagOutlinedIcon,
 } from "assets";
 import "./navbar.css";
-import { useFilter, useWishlist } from "context";
+import { useCart, useFilter, useWishlist } from "context";
 import { SEARCH_PRODUCTS } from "utils";
 
 const Navbar = () => {
@@ -16,7 +16,8 @@ const Navbar = () => {
   const { dispatch } = useFilter();
   const { wishlistState } = useWishlist();
   const { wishlist } = wishlistState;
-
+  const { cartState } = useCart();
+  const { cart } = cartState;
   const handleSearch = (e) => {
     e.preventDefault();
     const searchValue = e.target.value;
@@ -71,6 +72,9 @@ const Navbar = () => {
               onClick={() => navigate("/cart")}
             >
               <ShoppingBagOutlinedIcon className="nav-icon" />
+              {cart.length > 0 && (
+                <span className="badge-cart">{cart.length}</span>
+              )}
             </span>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import { useCart, useWishlist } from "context";
 import {
   ShoppingCartCheckoutIcon,
@@ -9,7 +8,6 @@ import {
   AddShoppingCartRoundedIcon,
 } from "assets";
 import { ADD_TO_CART, REMOVE_FROM_WISHLIST } from "utils";
-
 import "./wishlist.css";
 
 const Wishlist = () => {
@@ -18,6 +16,24 @@ const Wishlist = () => {
   const { wishlist } = wishlistState;
   const { cartState, cartDispatch } = useCart();
   const { cart } = cartState;
+
+  const handleMoveToCart = (e, product) => {
+    e.stopPropagation();
+    cartDispatch({
+      type: ADD_TO_CART,
+      payload: product,
+    });
+    navigate("/cart");
+  };
+
+  const handleRemoveFromWishlist = (e, productId) => {
+    e.stopPropagation();
+    wishlistDispatch({
+      type: REMOVE_FROM_WISHLIST,
+      payload: productId,
+    });
+    toast.success("Item removed from wishlist");
+  };
 
   return (
     <div className="middle-content">
@@ -41,7 +57,11 @@ const Wishlist = () => {
           <div className="wishlist-items">
             {wishlist.map((product) =>
               product && (
-                <div key={product._id} className="wishlist-item">
+                <div
+                  key={product._id}
+                  className="wishlist-item"
+                  onClick={() => navigate(`/productDetails/${product._id}`)}
+                >
                   <img
                     src={product.image}
                     alt={product.name}
@@ -53,19 +73,17 @@ const Wishlist = () => {
                       {product.description}
                     </h3>
                     <div className="wishlist-price">
-                      <p className="wishlist-product-card-price">₹{product.price}</p>
-                      <p className="wishlist-product-original-price">₹{product.originalPrice}</p>
+                      <p className="wishlist-product-card-price">
+                        ₹{product.price}
+                      </p>
+                      <p className="wishlist-product-original-price">
+                        ₹{product.originalPrice}
+                      </p>
                     </div>
                     <div className="wishlist-card-actions">
                       <button
                         className="wishlist-move-to-cart-btn"
-                        onClick={() => {
-                          cartDispatch({
-                            type: ADD_TO_CART,
-                            payload: product,
-                          });
-                          navigate("/cart");
-                        }}
+                        onClick={(e) => handleMoveToCart(e, product)}
                       >
                         <ShoppingCartCheckoutIcon className="icon" />
                         {cart.some((item) => item._id === product._id)
@@ -75,19 +93,15 @@ const Wishlist = () => {
                     </div>
                     <button
                       className="wishlist-delete-icon"
-                      onClick={() => {
-                        wishlistDispatch({
-                          type: REMOVE_FROM_WISHLIST,
-                          payload: product._id,
-                        });
-                        toast.success("Item removed from wishlist");
-                      }}
+                      onClick={(e) =>
+                        handleRemoveFromWishlist(e, product._id)
+                      }
                     >
                       <DeleteOutlinedIcon className="delete-icon" />
                     </button>
                   </div>
                 </div>
-              ) 
+              )
             )}
           </div>
         )}

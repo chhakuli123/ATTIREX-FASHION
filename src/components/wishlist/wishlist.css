@@ -57,6 +57,7 @@
 .wishlist-items {
   display: flex;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .wishlist-item {
@@ -146,6 +147,7 @@
 @media (max-width: 767px) {
   .wishlist-empty-image img {
     height: 20rem;
+    width: 100%;
   }
   .wishlist-empty-image::before {
     font-size: 1.1rem;

@@ -1,21 +1,30 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-import "./productcard.css";
+import { useCart, useWishlist } from "context";
 import {
   AddShoppingCartRoundedIcon,
   FavoriteBorderOutlinedIcon,
+  FavoriteIcon,
+  ShoppingCartCheckoutIcon,
   StarRoundedIcon,
 } from "assets";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useNavigate } from "react-router-dom";
-import { useWishlist } from "context";
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "utils";
-import { toast } from "react-toastify";
+import {
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+} from "utils";
+import "./productcard.css";
 
 const ProductCard = ({ product }) => {
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { wishlist } = wishlistState;
+  const { cartState, cartDispatch } = useCart();
+  const { cart } = cartState;
   const navigate = useNavigate();
+
   const {
     _id,
     name,
@@ -27,10 +36,15 @@ const ProductCard = ({ product }) => {
     image,
   } = product;
 
+  //--------------For Wishlist----------------------//
+
+  // Check if the product is in the wishlist
   const isFavorite =
     wishlist && wishlist.find((wishlistProduct) => wishlistProduct._id === _id);
 
-  const toggleWishlist = () => {
+  const toggleWishlist = (e) => {
+    e.stopPropagation();
+
     const actionType = isFavorite ? REMOVE_FROM_WISHLIST : ADD_TO_WISHLIST;
     const payload = isFavorite ? _id : product;
 
@@ -44,14 +58,36 @@ const ProductCard = ({ product }) => {
       : "Added to wishlist";
     toast.success(toastMessage);
   };
+
+  //--------------For Cart----------------------//
+
+  // Check if the product is in the cart
+  const isAddedToCart =
+    cart && cart.find((cartProduct) => cartProduct._id === _id);
+
+  const toggleCart = (e) => {
+    e.stopPropagation();
+
+    const actionType = isAddedToCart ? REMOVE_FROM_CART : ADD_TO_CART;
+    const payload = isAddedToCart ? _id : product;
+
+    cartDispatch({
+      type: actionType,
+      payload,
+    });
+
+    const toastMessage = isAddedToCart ? "Removed from cart" : "Added to cart";
+    toast.success(toastMessage);
+  };
+
   return (
     <div>
-      <div className="product-card" key={_id}>
-        <img
-          src={image}
-          alt={name}
-          onClick={() => navigate(`/productDetails/${_id}`)}
-        />
+      <div
+        className="product-card"
+        key={_id}
+        onClick={() => navigate(`/productDetails/${_id}`)}
+      >
+        <img src={image} alt={name} />
         {isTrending && <span className="card-badge">Trending</span>}
         <span
           className={`whishlist-heart ${isFavorite ? "favorite" : ""}`}
@@ -79,9 +115,21 @@ const ProductCard = ({ product }) => {
             <p className="product-original-price">₹{originalPrice}</p>
           </div>
           <div className="product-card-actions">
-            <button className="add-to-cart-btn">
-              <AddShoppingCartRoundedIcon className="icon" /> Add to Cart
-            </button>
+            {isAddedToCart ? (
+              <span
+                className="add-to-cart-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/cart");
+                }}
+              >
+                <ShoppingCartCheckoutIcon className="icon" /> Go To Cart
+              </span>
+            ) : (
+              <span className="add-to-cart-btn" onClick={toggleCart}>
+                <AddShoppingCartRoundedIcon className="icon" /> Add To Cart
+              </span>
+            )}
           </div>
         </div>
       </div>

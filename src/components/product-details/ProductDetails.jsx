@@ -1,24 +1,26 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import "./productdetails.css";
 import {
   CheckCircleIcon,
   LocalOfferIcon,
   LocalShippingIcon,
   StarRoundedIcon,
 } from "assets";
-import { useProductsData, useWishlist } from "context";
-import { ADD_TO_WISHLIST } from "utils";
+import { useCart, useProductsData, useWishlist } from "context";
+import { ADD_TO_CART, ADD_TO_WISHLIST } from "utils";
 import { toast } from "react-toastify";
+import "./productdetails.css";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const { wishlistState, wishlistDispatch } = useWishlist();
-  const { wishlist } = wishlistState;
   const navigate = useNavigate();
 
   const { productsData } = useProductsData();
+  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishlist } = wishlistState;
+  const { cartState, cartDispatch } = useCart();
+  const { cart } = cartState;
 
   const product = productsData?.find((product) => {
     return product._id === productId;
@@ -27,6 +29,9 @@ const ProductDetails = () => {
   const isFavorite =
     wishlist &&
     wishlist.find((wishlistProduct) => wishlistProduct._id === product._id);
+
+  const isAddedToCart =
+    cart && cart.find((cartProduct) => cartProduct._id === product._id);
 
   return (
     <>
@@ -71,7 +76,21 @@ const ProductDetails = () => {
           </div>
           <div className="product-btn-container">
             <button className="product-detail-add-to-cart-btn">
-              Add to Cart
+              {isAddedToCart ? (
+                <span onClick={() => navigate("/cart")}>Go To Cart</span>
+              ) : (
+                <span
+                  onClick={() => {
+                    cartDispatch({
+                      type: ADD_TO_CART,
+                      payload: product,
+                    });
+                    toast.success("Added to cart");
+                  }}
+                >
+                  Add To Cart
+                </span>
+              )}
             </button>
             <button className="product-detail-add-to-whishlist-btn">
               {isFavorite ? (

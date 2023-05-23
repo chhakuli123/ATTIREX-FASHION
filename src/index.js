@@ -1,17 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
-import "./index.css";
-import App from "./App";
-import { makeServer } from "./server";
+// Context Providers
 import {
+  CartContextProvider,
   FilterContextProvider,
   ProductsDataProvider,
   WishlistContextProvider,
 } from "context";
-import { ToastContainer } from "react-toastify";
+
+// CSS Styles
+import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
+
+// App Component and Server
+import App from "./App";
+import { makeServer } from "./server";
 
 // Call make Server
 makeServer();
@@ -22,7 +28,9 @@ ReactDOM.render(
       <ProductsDataProvider>
         <FilterContextProvider>
           <WishlistContextProvider>
-            <App />
+            <CartContextProvider>
+              <App />
+            </CartContextProvider>
           </WishlistContextProvider>
         </FilterContextProvider>
       </ProductsDataProvider>

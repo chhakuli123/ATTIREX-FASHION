@@ -14,6 +14,9 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 export {
   SearchIcon,
   PersonOutlineOutlinedIcon,
@@ -31,4 +34,7 @@ export {
   CheckCircleIcon,
   DeleteOutlinedIcon,
   ShoppingCartCheckoutIcon,
+  FavoriteIcon,
+  SellOutlinedIcon,
+  CloseIcon,
 };

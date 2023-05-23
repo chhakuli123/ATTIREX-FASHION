@@ -1,0 +1,341 @@
+.cart-container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.2rem;
+  color: var(--deep-blue);
+  cursor: pointer;
+}
+
+.cart-title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.cart-empty-message {
+  position: relative;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.cart-empty-message img {
+  height: 30rem;
+  object-fit: cover;
+  width: 75%;
+  margin: 0.4rem 0;
+}
+
+.cart-empty-message::before {
+  content: "Oh no! 🛒💔 Your cart feels a bit too light. It's craving for fashionable additions! Embark on a shopping spree and fill it with trendy outfits that will make heads turn! 💃✨";
+  display: block;
+  font-size: 1.3rem;
+}
+
+.cart-moveto-products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 41.5%;
+  padding: 0.8rem 0;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  background-color: var(--deep-blue);
+  color: var(--white);
+  margin: 0 auto;
+}
+
+.cart-moveto-products:hover {
+  background-color: var(--white);
+  color: var(--deep-blue);
+}
+
+.cart-moveto-products .icon {
+  margin-right: 0.4rem;
+}
+
+.cart-items-container {
+  margin: 4rem 0;
+  gap: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex: 2;
+  margin-right: 1.25rem;
+}
+
+.cart-item {
+  flex: 1;
+  background-color: #fff;
+  box-shadow: 0px 0px 0.8rem var(--boxshadow-color);
+  padding: 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.cart-summary {
+  flex: 1;
+  padding: 1.25rem;
+  text-align: left;
+  box-shadow: 0px 0px 0.8rem var(--boxshadow-color);
+}
+
+.cart-item-image img {
+  width: 100px;
+  height: 9.5rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.cart-item-details {
+  margin-left: 1.25rem;
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-item-name {
+  font-size: 1.5rem;
+  color: var(--deep-blue);
+}
+
+.cart-price {
+  display: flex;
+  font-size: 1rem;
+  justify-content: left;
+  margin-top: 0.2rem;
+}
+
+.cart-item-price {
+  font-weight: bold;
+}
+
+.cart-item-original-price {
+  color: var(--bright-blue);
+  text-decoration: line-through;
+  margin-left: 0.6rem;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.quantity button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.1rem;
+  height: 1.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background-color: var(--counter-bg);
+  color: var(--counter);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 0.3rem;
+}
+
+.quantity button:hover {
+  background-color: var(--medium-blue);
+  color: var(--white);
+}
+
+.cart-summary-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.3rem;
+}
+
+.cart-summary-buttons button {
+  padding: 0.48rem 0.25rem;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--deep-blue);
+  color: var(--white);
+  cursor: pointer;
+  width: 48%;
+  transition: background-color 0.3s ease;
+  border-radius: 0.25rem;
+}
+
+.cart-summary-buttons button:hover {
+  background-color: var(--medium-blue);
+}
+
+.coupon-container {
+  margin-bottom: 1.25rem;
+}
+
+.coupon-apply-btn {
+  display: flex;
+  justify-content: center;
+  padding: 0.4rem 0.3rem;
+  font-size: 1.2rem;
+  border: none;
+  color: var(--deep-blue);
+  border: 1px solid var(--deep-blue);
+  background-color: transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.coupon-apply-btn .apply-coupon-icon {
+  margin-right: 0.5rem;
+  font-size: 0.2rem;
+}
+
+.price-detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.price-detail-row span:first-child {
+  font-weight: bold;
+  color: var(--deep-blue);
+}
+
+.delivery-charges {
+  font-weight: bold;
+}
+
+.delivery-charges::before {
+  content: "₹99";
+  text-decoration: line-through;
+  margin-right: 0.5rem;
+  color: var(--bright-blue);
+}
+
+.total-amount {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--deep-blue);
+  margin: 1rem 0;
+}
+
+.checkout-btn {
+  padding: 0.6rem 1.25rem;
+  font-size: 1.1rem;
+  border: none;
+  background-color: var(--deep-blue);
+  color: var(--white);
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.checkout-btn:hover {
+  background-color: var(--medium-blue);
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+  .cart-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  .cart-empty-message img {
+    height: 20rem;
+    width: 100%;
+  }
+
+  .cart-empty-message::before {
+    font-size: 1rem;
+  }
+
+  .cart-moveto-products {
+    font-size: 0.9rem;
+    width: 50%;
+  }
+
+  .cart-items-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin: 0 auto;
+  }
+
+  .cart-items {
+    justify-content: center;
+    margin-right: 0rem;
+  }
+
+  .cart-item {
+    flex: 1;
+    margin-bottom: 0.7rem;
+  }
+
+  .cart-item-details {
+    width: 15rem;
+  }
+  .cart-item-name {
+    font-size: 1.2rem;
+  }
+
+  .cart-price {
+    font-size: 0.9rem;
+  }
+
+  .cart-item-original-price {
+    margin-left: 0.3rem;
+  }
+
+  .quantity button {
+    width: 1.8rem;
+    height: 1.6rem;
+    font-size: 0.8rem;
+  }
+
+  .cart-summary {
+    padding: 1rem;
+    width: 17rem;
+    text-align: center;
+    align-self: center;
+  }
+
+  .cart-summary-buttons button {
+    font-size: 0.8rem;
+    padding: 10px 0;
+  }
+
+  .coupon-container {
+    margin-bottom: 1.25rem;
+  }
+
+  .coupon-apply-btn {
+    font-size: 1rem;
+  }
+
+  .price-detail-row {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .total-amount {
+    font-size: 1rem;
+    margin: 0.8rem 0;
+  }
+
+  .checkout-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+}

@@ -19,4 +19,6 @@ export {
   CLEAR_FILTERS,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
 } from "./constants";

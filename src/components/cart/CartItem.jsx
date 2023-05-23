@@ -14,9 +14,13 @@ const CartItem = ({ product, quantity, setQuantity }) => {
   // Decrease the quantity of the cart item
   const decreaseQuantity = (e) => {
     e.stopPropagation();
-    setQuantity((prev) => (prev === 1 ? 1 : prev - 1));
+    if (quantity === 1) {
+      return; // Do nothing if the quantity is already 1
+    }
+    setQuantity((prev) => prev - 1);
     toast.info("Quantity Decreased!");
   };
+  
 
   // Increase the quantity of the cart item
   const increaseQuantity = (e) => {

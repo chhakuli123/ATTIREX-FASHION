@@ -3,22 +3,24 @@
   margin: 0 auto;
   padding: 1.2rem;
   color: var(--deep-blue);
+  cursor: pointer;
 }
 
 .cart-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 2rem;
 }
 
 .cart-empty-message {
   position: relative;
   text-align: center;
+  margin: 2rem 0;
 }
 
 .cart-empty-message img {
   height: 30rem;
   object-fit: cover;
-  width: 70%;
+  width: 75%;
   margin: 0.4rem 0;
 }
 
@@ -34,7 +36,7 @@
   justify-content: center;
   font-weight: bold;
   font-size: 1rem;
-  width: 50%;
+  width: 41.5%;
   padding: 0.8rem 0;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -83,7 +85,6 @@
   flex: 1;
   padding: 1.25rem;
   text-align: left;
-  background-color: #fff;
   box-shadow: 0px 0px 0.8rem var(--boxshadow-color);
 }
 
@@ -160,7 +161,7 @@
 }
 
 .cart-summary-buttons button {
-  padding: 0.37rem 0.25rem;
+  padding: 0.48rem 0.25rem;
   font-size: 1rem;
   border: none;
   background-color: var(--deep-blue);
@@ -250,12 +251,6 @@
     max-width: 100%;
     padding: 1rem;
   }
-
-  .cart-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
   .cart-empty-message img {
     height: 20rem;
     width: 100%;
@@ -267,7 +262,7 @@
 
   .cart-moveto-products {
     font-size: 0.9rem;
-    width: 100%;
+    width: 50%;
   }
 
   .cart-items-container {

@@ -7,6 +7,7 @@ import {
   ProductDetailsPage,
   WishlistPage,
   CartPage,
+  CheckoutPage,
 } from "pages";
 import { Footer, Navbar } from "components";
 function App() {
@@ -22,6 +23,7 @@ function App() {
         />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
       <Footer />
     </div>

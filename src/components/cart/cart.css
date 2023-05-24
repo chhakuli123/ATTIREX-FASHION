@@ -170,6 +170,7 @@
   width: 48%;
   transition: background-color 0.3s ease;
   border-radius: 0.25rem;
+  font-weight: bold;
 }
 
 .cart-summary-buttons button:hover {
@@ -192,6 +193,7 @@
   border-radius: 0.3rem;
   cursor: pointer;
   width: 100%;
+  font-weight: bold;
 }
 
 .coupon-apply-btn .apply-coupon-icon {
@@ -239,6 +241,8 @@
   width: 100%;
   transition: background-color 0.3s ease;
   margin-top: 1rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
 }
 
 .checkout-btn:hover {
@@ -305,37 +309,15 @@
 
   .cart-summary {
     padding: 1rem;
-    width: 17rem;
-    text-align: center;
-    align-self: center;
+    width: 18rem;
   }
 
   .cart-summary-buttons button {
     font-size: 0.8rem;
-    padding: 10px 0;
+    padding: 0.8rem 0;
   }
 
   .coupon-container {
-    margin-bottom: 1.25rem;
-  }
-
-  .coupon-apply-btn {
-    font-size: 1rem;
-  }
-
-  .price-detail-row {
-    font-size: 0.8rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .total-amount {
-    font-size: 1rem;
-    margin: 0.8rem 0;
-  }
-
-  .checkout-btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    margin-top: 0.8rem;
+    margin-bottom: 1rem;
   }
 }

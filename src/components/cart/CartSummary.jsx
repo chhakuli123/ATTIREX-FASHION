@@ -1,18 +1,49 @@
-import React from 'react';
-import {SellOutlinedIcon} from 'assets';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const CartSummary = ({ cart, quantity, setShowCouponModal, isCouponApplied, coupon }) => {
+import { SellOutlinedIcon } from "assets";
+
+const CartSummary = ({
+  cart,
+  quantity,
+  setShowCouponModal,
+  isCouponApplied,
+  coupon,
+}) => {
+  const navigate = useNavigate();
+
+  //total MRP
+  const totalMrp = cart.reduce(
+    (total, product) => total + product.price * quantity,
+    0
+  );
+
   // Calculate the total price with discount and coupon
-  const totalPrice = cart.reduce((total, product) => total + product.price * quantity, 0) - 500 - (isCouponApplied ? coupon : 0);
+  const totalPrice = totalMrp - 500 - (isCouponApplied ? coupon : 0);
 
   // Calculate the discount based on the quantity
   const discountedPrice = 500 + (quantity - 1) * 500;
 
+  const handleCheckout = () => {
+    navigate("/checkout", {
+      state: {
+        quantity,
+        totalPrice,
+        totalMrp,
+        discountedPrice,
+        isCouponApplied,
+        coupon,
+      },
+    });
+  };
   return (
     <div className="cart-summary">
       <div className="cart-summary-right">
         <div className="coupon-container">
-          <button className="coupon-apply-btn" onClick={() => setShowCouponModal(true)}>
+          <button
+            className="coupon-apply-btn"
+            onClick={() => setShowCouponModal(true)}
+          >
             <span className="apply-coupon-icon">
               <SellOutlinedIcon />
             </span>
@@ -25,10 +56,7 @@ const CartSummary = ({ cart, quantity, setShowCouponModal, isCouponApplied, coup
           </p>
           <p className="price-detail-row">
             <span>Total MRP:</span>
-            <span>
-              ₹
-              {cart.reduce((total, product) => total + product.price * quantity, 0)}
-            </span>
+            <span>₹{totalMrp}</span>
           </p>
           <p className="price-detail-row">
             <span>Discount:</span> <span>- ₹{discountedPrice}</span>
@@ -50,8 +78,10 @@ const CartSummary = ({ cart, quantity, setShowCouponModal, isCouponApplied, coup
             <span>Total Amount:</span> <span>₹{totalPrice}</span>
           </p>
         </div>
-        <hr />
-        <button className="checkout-btn">Checkout</button>
+
+        <button className="checkout-btn" onClick={handleCheckout}>
+          Checkout
+        </button>
       </div>
     </div>
   );

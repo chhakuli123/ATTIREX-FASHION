@@ -13,3 +13,4 @@ export { Cart } from "./cart/Cart";
 export { CouponModal } from "./cart/coupon-model/CouponModel";
 export { CartItem } from "./cart/CartItem";
 export { CartSummary } from "./cart/CartSummary";
+export { Checkout } from "./checkout/Checkout";

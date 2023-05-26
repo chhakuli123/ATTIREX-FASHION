@@ -1,0 +1,94 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7rem 0;
+}
+
+.profile-container {
+  background-color: var(--white);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2);
+  padding: 1.9rem;
+  width: 19rem;
+  text-align: center;
+}
+
+.profile-container .profile-heading {
+  font-size: 2rem;
+  margin-bottom: 2.1rem;
+  color: var(--deep-blue);
+}
+
+.profile-details {
+  margin-bottom: 1.5rem;
+}
+
+.profile-details h3 {
+  margin: 0.6rem 0;
+  font-size: 1.25rem;
+  color: var(--counter);
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.logout-btn {
+  background-color: var(--danger);
+  color: var(--white);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #9c2424;
+}
+
+.login-link {
+  color: #ff5a5f;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #ff4045;
+}
+
+.avatar-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.avatar-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--deep-blue);
+  padding: 0.8rem;
+}
+
+.status-dot {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--star-bg);
+  bottom: 0.4rem;
+  right: 7rem;
+}
+@media (max-width: 768px) {
+  .profile-page {
+    margin: 7rem 0;
+  }
+  .profile-container {
+    padding: 1rem;
+  }
+}

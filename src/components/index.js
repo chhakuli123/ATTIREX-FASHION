@@ -14,3 +14,7 @@ export { CouponModal } from "./cart/coupon-model/CouponModel";
 export { CartItem } from "./cart/CartItem";
 export { CartSummary } from "./cart/CartSummary";
 export { Checkout } from "./checkout/Checkout";
+export { SignupForm } from "./authentication/signup-form/SignupForm";
+export { LoginForm } from "./authentication/LoginForm";
+export { PrivateRoute } from "./authentication/PrivateRoute";
+export { UserProfile } from "./user-profile/UserProfile";

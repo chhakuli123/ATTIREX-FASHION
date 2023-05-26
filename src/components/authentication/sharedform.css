@@ -69,7 +69,7 @@
 }
 
 .form__footer-text {
-  margin-right: 7px;
+  margin-right: 0.4rem;
   color: var(--counter);
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { toast } from "react-toastify";
+import { toast } from  "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 import { useCart, useWishlist } from "context";
@@ -18,7 +18,7 @@ const CartItem = ({ product, quantity, setQuantity }) => {
       return; // Do nothing if the quantity is already 1
     }
     setQuantity((prev) => prev - 1);
-    toast.info("Quantity Decreased!");
+    toast.success("Quantity Decreased!");
   };
   
 
@@ -26,7 +26,7 @@ const CartItem = ({ product, quantity, setQuantity }) => {
   const increaseQuantity = (e) => {
     e.stopPropagation();
     setQuantity((prev) => prev + 1);
-    toast.info("Quantity Increased!");
+    toast.success("Quantity Increased!");
   };
 
   // Handle the click on the "Wishlist" button
@@ -34,7 +34,7 @@ const CartItem = ({ product, quantity, setQuantity }) => {
     e.stopPropagation();
     if (isProductInWishlist) {
         navigate("/wishlist");
-        toast.info("Already in Wishlist");
+        toast.success("Already in Wishlist");
       } else {
         wishlistDispatch({
           type: ADD_TO_WISHLIST,

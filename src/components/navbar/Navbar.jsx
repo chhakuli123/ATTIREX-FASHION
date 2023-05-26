@@ -8,7 +8,7 @@ import {
   ShoppingBagOutlinedIcon,
 } from "assets";
 import "./navbar.css";
-import { useCart, useFilter, useWishlist } from "context";
+import { useAuth, useCart, useFilter, useWishlist } from "context";
 import { SEARCH_PRODUCTS } from "utils";
 
 const Navbar = () => {
@@ -18,6 +18,8 @@ const Navbar = () => {
   const { wishlist } = wishlistState;
   const { cartState } = useCart();
   const { cart } = cartState;
+  const { isLoggedIn } = useAuth(); 
+
   const handleSearch = (e) => {
     e.preventDefault();
     const searchValue = e.target.value;
@@ -58,12 +60,12 @@ const Navbar = () => {
             <SearchIcon className="nav-icon" />
           </form>
           <div className="nav-icons-container">
-            <span className="nav-icons" onClick={() => navigate("/signin")}>
+            <span className="nav-icons" onClick={() => navigate("/profile")}>
               <PersonOutlineOutlinedIcon className="nav-icon" />
             </span>
             <span className="nav-icons" onClick={() => navigate("/wishlist")}>
               <FavoriteBorderOutlinedIcon className="nav-icon" />
-              {wishlist.length > 0 && (
+              {wishlist.length > 0 && isLoggedIn && (
                 <span className="badge-wishlist">{wishlist.length}</span>
               )}
             </span>
@@ -72,7 +74,7 @@ const Navbar = () => {
               onClick={() => navigate("/cart")}
             >
               <ShoppingBagOutlinedIcon className="nav-icon" />
-              {cart.length > 0 && (
+              {cart.length > 0 && isLoggedIn &&(
                 <span className="badge-cart">{cart.length}</span>
               )}
             </span>

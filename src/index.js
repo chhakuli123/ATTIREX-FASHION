@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 
 // Context Providers
 import {
+  AuthProvider,
   CartContextProvider,
   FilterContextProvider,
   ProductsDataProvider,
@@ -25,17 +25,18 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ProductsDataProvider>
-        <FilterContextProvider>
-          <WishlistContextProvider>
-            <CartContextProvider>
-              <App />
-            </CartContextProvider>
-          </WishlistContextProvider>
-        </FilterContextProvider>
-      </ProductsDataProvider>
+      <AuthProvider>
+        <ProductsDataProvider>
+          <FilterContextProvider>
+            <WishlistContextProvider>
+              <CartContextProvider>
+                <App />
+              </CartContextProvider>
+            </WishlistContextProvider>
+          </FilterContextProvider>
+        </ProductsDataProvider>
+      </AuthProvider>
     </Router>
-    <ToastContainer position="bottom-right" autoClose={800} draggable />
   </React.StrictMode>,
   document.getElementById("root")
 );

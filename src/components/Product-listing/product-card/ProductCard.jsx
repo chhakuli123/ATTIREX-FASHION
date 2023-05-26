@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from  "react-hot-toast";
 
-import { useCart, useWishlist } from "context";
+import { useAuth, useCart, useWishlist } from "context";
 import {
   AddShoppingCartRoundedIcon,
   FavoriteBorderOutlinedIcon,
@@ -19,11 +19,12 @@ import {
 import "./productcard.css";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
   const { wishlistState, wishlistDispatch } = useWishlist();
   const { wishlist } = wishlistState;
   const { cartState, cartDispatch } = useCart();
   const { cart } = cartState;
-  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth(); 
 
   const {
     _id,
@@ -45,6 +46,10 @@ const ProductCard = ({ product }) => {
   const toggleWishlist = (e) => {
     e.stopPropagation();
 
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
     const actionType = isFavorite ? REMOVE_FROM_WISHLIST : ADD_TO_WISHLIST;
     const payload = isFavorite ? _id : product;
 
@@ -67,7 +72,10 @@ const ProductCard = ({ product }) => {
 
   const toggleCart = (e) => {
     e.stopPropagation();
-
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
     const actionType = isAddedToCart ? REMOVE_FROM_CART : ADD_TO_CART;
     const payload = isAddedToCart ? _id : product;
 

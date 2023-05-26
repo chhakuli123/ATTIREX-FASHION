@@ -17,6 +17,9 @@ import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import CloseIcon from "@mui/icons-material/Close";
+import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 export {
   SearchIcon,
   PersonOutlineOutlinedIcon,
@@ -37,4 +40,7 @@ export {
   FavoriteIcon,
   SellOutlinedIcon,
   CloseIcon,
+  ErrorOutlineOutlinedIcon,
+  RemoveRedEyeOutlinedIcon,
+  VisibilityOffOutlinedIcon,
 };

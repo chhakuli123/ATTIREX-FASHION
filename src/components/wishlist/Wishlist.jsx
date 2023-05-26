@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from  "react-hot-toast";
 import { useCart, useWishlist } from "context";
 import {
   ShoppingCartCheckoutIcon,
@@ -24,6 +24,7 @@ const Wishlist = () => {
       payload: product,
     });
     navigate("/cart");
+    toast.success("Already in cart");
   };
 
   const handleRemoveFromWishlist = (e, productId) => {

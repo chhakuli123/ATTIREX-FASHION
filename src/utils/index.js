@@ -22,3 +22,4 @@ export {
   ADD_TO_CART,
   REMOVE_FROM_CART,
 } from "./constants";
+export { loginService, signupService } from "./authServices";

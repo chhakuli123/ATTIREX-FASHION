@@ -9,7 +9,7 @@ import {
 } from "assets";
 import { useCart, useProductsData, useWishlist } from "context";
 import { ADD_TO_CART, ADD_TO_WISHLIST } from "utils";
-import { toast } from "react-toastify";
+import { toast } from  "react-hot-toast";
 import "./productdetails.css";
 
 const ProductDetails = () => {

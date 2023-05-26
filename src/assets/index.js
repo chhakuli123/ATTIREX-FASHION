@@ -18,4 +18,7 @@ export {
   FavoriteIcon,
   SellOutlinedIcon,
   CloseIcon,
+  ErrorOutlineOutlinedIcon,
+  RemoveRedEyeOutlinedIcon,
+  VisibilityOffOutlinedIcon,
 } from "./icons/materialIcons";

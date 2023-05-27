@@ -7,12 +7,12 @@ import {
   DeleteOutlinedIcon,
   AddShoppingCartRoundedIcon,
 } from "assets";
-import { ADD_TO_CART, REMOVE_FROM_WISHLIST } from "utils";
+import { ADD_TO_CART } from "utils";
 import "./wishlist.css";
 
 const Wishlist = () => {
   const navigate = useNavigate();
-  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishlistState ,removeFromWishlistHandler} = useWishlist();
   const { wishlist } = wishlistState;
   const { cartState, cartDispatch } = useCart();
   const { cart } = cartState;
@@ -27,13 +27,12 @@ const Wishlist = () => {
     toast.success("Already in cart");
   };
 
-  const handleRemoveFromWishlist = (e, productId) => {
+  const handleRemoveFromWishlist = (e, product) => {
     e.stopPropagation();
-    wishlistDispatch({
-      type: REMOVE_FROM_WISHLIST,
-      payload: productId,
-    });
-    toast.success("Item removed from wishlist");
+    removeFromWishlistHandler(
+      product._id
+    );
+    toast.success(`${product.name} removed from wishlist`);
   };
 
   return (
@@ -95,7 +94,7 @@ const Wishlist = () => {
                     <button
                       className="wishlist-delete-icon"
                       onClick={(e) =>
-                        handleRemoveFromWishlist(e, product._id)
+                        handleRemoveFromWishlist(e, product)
                       }
                     >
                       <DeleteOutlinedIcon className="delete-icon" />

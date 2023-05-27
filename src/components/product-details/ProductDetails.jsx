@@ -7,17 +7,23 @@ import {
   LocalShippingIcon,
   StarRoundedIcon,
 } from "assets";
-import { useCart, useProductsData, useWishlist } from "context";
-import { ADD_TO_CART, ADD_TO_WISHLIST } from "utils";
-import { toast } from  "react-hot-toast";
+import {
+  useAuth,
+  useCart,
+  useProductsData,
+  useWishlist,
+} from "context";
+import { ADD_TO_CART } from "utils";
+import { toast } from "react-hot-toast";
 import "./productdetails.css";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
+  const { isLoggedIn } = useAuth();
   const { productsData } = useProductsData();
-  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishlistState, addToWishlistHandler } = useWishlist();
   const { wishlist } = wishlistState;
   const { cartState, cartDispatch } = useCart();
   const { cart } = cartState;
@@ -26,12 +32,17 @@ const ProductDetails = () => {
     return product._id === productId;
   });
 
-  const isFavorite =
-    wishlist &&
-    wishlist.find((wishlistProduct) => wishlistProduct._id === product._id);
+  const isFavorite = wishlist && wishlist.find((wishlistProduct) => wishlistProduct._id === product._id);
+  const isAddedToCart = cart && cart.find((cartProduct) => cartProduct._id === product._id);
 
-  const isAddedToCart =
-    cart && cart.find((cartProduct) => cartProduct._id === product._id);
+  const handleAddToWishlist = () => {
+    if (isLoggedIn) {
+      addToWishlistHandler(product);
+      toast.success(`${product.name} added to wishlist`);
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <>
@@ -92,25 +103,15 @@ const ProductDetails = () => {
                 </span>
               )}
             </button>
-            <button className="product-detail-add-to-whishlist-btn">
-              {isFavorite ? (
-                <span onClick={() => navigate("/wishlist")}>
-                  Go To Wishlist
-                </span>
-              ) : (
-                <span
-                  onClick={() => {
-                    wishlistDispatch({
-                      type: ADD_TO_WISHLIST,
-                      payload: product,
-                    });
-                    toast.success("Added to wishlist");
-                  }}
-                >
-                  Add To Whishlist
-                </span>
-              )}
-            </button>
+            {isFavorite ? (
+              <button className="product-detail-add-to-whishlist-btn" onClick={() => navigate("/wishlist")}>
+                Go To Wishlist
+              </button>
+            ) : (
+              <button className="product-detail-add-to-whishlist-btn" onClick={handleAddToWishlist}>
+                Add To Wishlist
+              </button>
+            )}
           </div>
         </div>
       </div>

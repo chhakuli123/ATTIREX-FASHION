@@ -3,12 +3,12 @@ import { toast } from  "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 import { useCart, useWishlist } from "context";
-import { ADD_TO_WISHLIST, REMOVE_FROM_CART } from "utils";
+import { REMOVE_FROM_CART } from "utils";
 
 const CartItem = ({ product, quantity, setQuantity }) => {
   const navigate = useNavigate();
   const { cartDispatch } = useCart();
-  const { wishlistState,wishlistDispatch } = useWishlist();
+  const { wishlistState,addToWishlistHandler } = useWishlist();
   const { wishlist } = wishlistState;
 
   // Decrease the quantity of the cart item
@@ -34,13 +34,10 @@ const CartItem = ({ product, quantity, setQuantity }) => {
     e.stopPropagation();
     if (isProductInWishlist) {
         navigate("/wishlist");
-        toast.success("Already in Wishlist");
+        toast.success(`${product.name} is already in wishlist`);
       } else {
-        wishlistDispatch({
-          type: ADD_TO_WISHLIST,
-          payload: product,
-        });
-        toast.success("Added to Wishlist");
+        addToWishlistHandler(product);
+        toast.success(`${product.name} added to wishlist`);
       }
   };
 

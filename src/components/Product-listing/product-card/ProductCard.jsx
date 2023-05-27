@@ -11,8 +11,6 @@ import {
   StarRoundedIcon,
 } from "assets";
 import {
-  ADD_TO_WISHLIST,
-  REMOVE_FROM_WISHLIST,
   ADD_TO_CART,
   REMOVE_FROM_CART,
 } from "utils";
@@ -20,7 +18,7 @@ import "./productcard.css";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const { wishlistState, wishlistDispatch } = useWishlist();
+  const { wishlistState, removeFromWishlistHandler,addToWishlistHandler } = useWishlist();
   const { wishlist } = wishlistState;
   const { cartState, cartDispatch } = useCart();
   const { cart } = cartState;
@@ -41,28 +39,24 @@ const ProductCard = ({ product }) => {
 
   // Check if the product is in the wishlist
   const isFavorite =
-    wishlist && wishlist.find((wishlistProduct) => wishlistProduct._id === _id);
+  isLoggedIn && wishlist && wishlist.find((wishlistProduct) => wishlistProduct._id === _id);
 
-  const toggleWishlist = (e) => {
-    e.stopPropagation();
-
-    if (!isLoggedIn) {
-      navigate("/login");
-      return;
-    }
-    const actionType = isFavorite ? REMOVE_FROM_WISHLIST : ADD_TO_WISHLIST;
-    const payload = isFavorite ? _id : product;
-
-    wishlistDispatch({
-      type: actionType,
-      payload,
-    });
-
-    const toastMessage = isFavorite
-      ? "Removed from wishlist"
-      : "Added to wishlist";
-    toast.success(toastMessage);
-  };
+    const toggleWishlist = (e) => {
+      e.stopPropagation();
+    
+      if (!isLoggedIn) {
+        navigate("/login");
+        return;
+      }
+    
+      if (isFavorite) {
+        removeFromWishlistHandler(_id);
+        toast.success(`${product.name} removed from wishlist`);
+      } else {
+        addToWishlistHandler(product);
+        toast.success(`${product.name} added to wishlist`);
+      }
+    };
 
   //--------------For Cart----------------------//
 

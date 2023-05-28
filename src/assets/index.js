@@ -21,4 +21,5 @@ export {
   ErrorOutlineOutlinedIcon,
   RemoveRedEyeOutlinedIcon,
   VisibilityOffOutlinedIcon,
+  RemoveShoppingCartOutlinedIcon,
 } from "./icons/materialIcons";

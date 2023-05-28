@@ -47,9 +47,13 @@ $ npm start
 - 🌐 Netlify for Deployment
 - ☁️ Cloudinary for Image Hosting
 
-## Live Link
-Checkout the live demo [ATTIREX-FASHION](https://attirex-fashion.netlify.app/)
+## Viewing the Website on 💻 and 📱
 
+ATTIREX is designed to be responsive and accessible on various devices.
+
+- Visit the live demo link [ATTIREX-FASHION](https://attirex-fashion.netlify.app/).
+- The website will automatically adapt to the screen size and display properly on your mobile device.
+- Navigate through the different pages and explore the features of ATTIREX.
 
 https://github.com/chhakuli123/ATTIREX-FASHION/assets/103095813/9eea0830-7099-4876-b54e-e9dec6373348
 

@@ -125,7 +125,16 @@
   margin-right: 0.3rem;
   margin-bottom: 0.1rem;
 }
-
+.add-to-cart-btn.outofstock {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+.add-to-cart-btn.outofstock:hover {
+  background-color: var(--deep-blue);
+  color: var(--white);
+  outline: none;
+  cursor: not-allowed;
+}
 .product-card {
   position: relative;
 }

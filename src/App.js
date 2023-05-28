@@ -18,10 +18,12 @@ import {
   UserProfile,
 } from "components";
 import { Toaster } from "react-hot-toast";
+import { ScrollToTop } from "utils";
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <ScrollToTop />
       <Toaster
         position="top-center"
         toastOptions={{
@@ -29,8 +31,8 @@ function App() {
           style: {
             fontSize: "1.2rem",
             fontWeight: "bold",
-            background: "rgba(0, 0, 0, 0.8)", // Adjust the background color to make it more visible
-            color: "#fff", // Set the text color to white
+            background: "rgba(0, 0, 0, 0.8)",
+            color: "#fff",
           },
         }}
       />

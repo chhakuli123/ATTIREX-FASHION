@@ -10,6 +10,7 @@ import {
   CheckoutPage,
 } from "pages";
 import {
+  Error,
   Footer,
   LoginForm,
   Navbar,
@@ -52,6 +53,7 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </div>

@@ -1,0 +1,40 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.image-container {
+  margin-bottom: 1.5rem;
+}
+.image-container img {
+  height: 30rem;
+  object-fit: cover;
+  width: 40rem;
+  margin: 0.4rem 0;
+}
+.back-btn {
+  padding: 0.8rem 5rem;
+  background-color: var(--star-bg);
+  color: var(--white);
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background-color: #45a049;
+}
+@media (max-width: 768px) {
+  .image-container img {
+    height: 15rem;
+    width: 100%;
+  }
+  .back-btn {
+    font-size: 1rem;
+  }
+}

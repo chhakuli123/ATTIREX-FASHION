@@ -18,3 +18,4 @@ export { SignupForm } from "./authentication/signup-form/SignupForm";
 export { LoginForm } from "./authentication/LoginForm";
 export { PrivateRoute } from "./authentication/PrivateRoute";
 export { UserProfile } from "./user-profile/UserProfile";
+export { Error } from "./error/Error";

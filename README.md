@@ -1,14 +1,12 @@
-  <!-- <div align="center"><h2 >🎉🥳 Welcome to ATTIREX! 🥳🎉</h2></div> -->
-
   <div align="center">
-    <span style="font-family: 'Libre Baskerville';font-size: 50px; font-weight: bold; ">ATTIREX</span>
-     <h3 style="font-weight:bold">
+    <h1>ATTIREX</h1>
+     <h3 >
       🛍️👗 Stay fashionable with ATTIREX! 🛍️👗
     </h3>
     <hr/>
-    <div style="font-size: 15px ">
+    <div>
     <p >
-      <span style="font-weight: bold; ">  🛍️💃 ATTIREX is your go-to fashion e-commerce platform!   🛍️💃</span><br/>
+      <span>  🛍️💃 ATTIREX is your go-to fashion e-commerce platform!   🛍️💃</span><br/>
       Discover the latest trends and stylish outfits to elevate your wardrobe. Whether you're looking for casual wear, formal attire, or something in between, ATTIREX has got you covered.Shop from a wide range of fashionable clothing options to express your unique style and make a statement.
     </p>
     </div>
@@ -17,7 +15,7 @@
 
 <hr/>
   
-  <h2 style="font-weight: bold;font-style:italic" >How to run the app locally?</h2>
+  <h2>How to run the app locally?</h2>
 
 
 ```
@@ -26,7 +24,7 @@ $ cd attirex-fashion
 $ npm install
 $ npm start
 ```
-<h2 style="font-weight: bold;font-style:italic" > Screens in this project</h2>
+<h2> Screens in this project</h2>
 
 - 🏠 Landing Page
 - 🛍️ Product Listing Page
@@ -38,7 +36,7 @@ $ npm start
 - 👤 Profile Page
 - 🔍 404 (Not Found) Page
 
-<h2 style="font-weight: bold;font-style:italic" > Tech Stack and Tools</h2>
+<h2> Tech Stack and Tools</h2>
 
 - ⚛️ React JS
 - 🚦 React Router v6
@@ -51,5 +49,6 @@ $ npm start
 
 ## Live Link
 Checkout the live demo [ATTIREX-FASHION](https://attirex-fashion.netlify.app/)
+
 
 

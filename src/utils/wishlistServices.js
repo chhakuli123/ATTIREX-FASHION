@@ -7,9 +7,13 @@ const getWishlist = async (token) => {
         authorization: token,
       },
     });
-    return response.data;
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      throw new Error();
+    }
   } catch (error) {
-    throw error.response.data;
+    console.log(error);
   }
 };
 
@@ -24,9 +28,13 @@ const addToWishlist = async (token, product) => {
         },
       }
     );
-    return response.data;
+    if (response.status === 201) {
+      return response.data;
+    } else {
+      throw new Error();
+    }
   } catch (error) {
-    throw error.response.data;
+    console.log(error);
   }
 };
 
@@ -37,9 +45,13 @@ const removeFromWishlist = async (token, productId) => {
         authorization: token,
       },
     });
-    return response.data;
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      throw new Error();
+    }
   } catch (error) {
-    throw error.response.data;
+    console.log(error);
   }
 };
 

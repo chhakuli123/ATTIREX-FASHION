@@ -45,7 +45,7 @@ export const products = [
     originalPrice: 2000,
     image:
       "https://res.cloudinary.com/dptfwcnro/image/upload/v1684231181/E-comm%20ATTIREX/Mens-Fashion/istockphoto-1327456615-612x612_n99hjx.jpg",
-    isOutOfStock: true,
+    isOutOfStock: false,
     description:
       "A comfortable and casual Henley shirt made from soft cotton fabric. It features a round neckline with a partial button placket and long sleeves. Perfect for a relaxed yet stylish look.",
     isTrending: false,
@@ -77,7 +77,7 @@ export const products = [
     originalPrice: 3000,
     image:
       "https://res.cloudinary.com/dptfwcnro/image/upload/v1684160987/E-comm%20ATTIREX/Mens-Fashion/istockphoto-1220376914-612x612_qonriu.jpg",
-    isOutOfStock: false,
+    isOutOfStock: true,
     description:
       "Blue washed mid-rise jeans, heavily distressed, has a button and zip closure, waistband with belt loops, five pockets, and cuffed hems",
     isTrending: false,

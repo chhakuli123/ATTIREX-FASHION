@@ -1,37 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from  "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useCart, useWishlist } from "context";
 import {
   ShoppingCartCheckoutIcon,
   DeleteOutlinedIcon,
   AddShoppingCartRoundedIcon,
 } from "assets";
-import { ADD_TO_CART } from "utils";
+
 import "./wishlist.css";
 
 const Wishlist = () => {
   const navigate = useNavigate();
-  const { wishlistState ,removeFromWishlistHandler} = useWishlist();
+  const { wishlistState, removeFromWishlistHandler } = useWishlist();
   const { wishlist } = wishlistState;
-  const { cartState, cartDispatch } = useCart();
+  const { cartState, addToCartHandler } = useCart();
   const { cart } = cartState;
 
   const handleMoveToCart = (e, product) => {
     e.stopPropagation();
-    cartDispatch({
-      type: ADD_TO_CART,
-      payload: product,
-    });
-    navigate("/cart");
-    toast.success("Already in cart");
+    addToCartHandler(product);
+    toast.success(`${product.name} added to cart`);
   };
 
   const handleRemoveFromWishlist = (e, product) => {
     e.stopPropagation();
-    removeFromWishlistHandler(
-      product._id
-    );
+    removeFromWishlistHandler(product._id);
     toast.success(`${product.name} removed from wishlist`);
   };
 
@@ -55,53 +49,63 @@ const Wishlist = () => {
           </div>
         ) : (
           <div className="wishlist-items">
-            {wishlist.map((product) =>
-              product && (
-                <div
-                  key={product._id}
-                  className="wishlist-item"
-                  onClick={() => navigate(`/productDetails/${product._id}`)}
-                >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="wishlist-product-image"
-                  />
-                  <div className="wishlist-item-details">
-                    <h3 className="wishlist-product-name">{product.name}</h3>
-                    <h3 className="wishlist-product-description">
-                      {product.description}
-                    </h3>
-                    <div className="wishlist-price">
-                      <p className="wishlist-product-card-price">
-                        ₹{product.price}
-                      </p>
-                      <p className="wishlist-product-original-price">
-                        ₹{product.originalPrice}
-                      </p>
-                    </div>
-                    <div className="wishlist-card-actions">
+            {wishlist.map(
+              (product) =>
+                product && (
+                  <div
+                    key={product._id}
+                    className="wishlist-item"
+                    onClick={() => navigate(`/productDetails/${product._id}`)}
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="wishlist-product-image"
+                    />
+                    <div className="wishlist-item-details">
+                      <h3 className="wishlist-product-name">{product.name}</h3>
+                      <h3 className="wishlist-product-description">
+                        {product.description}
+                      </h3>
+                      <div className="wishlist-price">
+                        <p className="wishlist-product-card-price">
+                          ₹{product.price}
+                        </p>
+                        <p className="wishlist-product-original-price">
+                          ₹{product.originalPrice}
+                        </p>
+                      </div>
+                      <div className="wishlist-card-actions">
+                        {cart.some((item) => item._id === product._id) ? (
+                          <button
+                            className="wishlist-move-to-cart-btn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate("/cart");
+                            }}
+                          >
+                            <ShoppingCartCheckoutIcon className="icon" />
+                            Go To Cart
+                          </button>
+                        ) : (
+                          <button
+                            className="wishlist-move-to-cart-btn"
+                            onClick={(e) => handleMoveToCart(e, product)}
+                          >
+                            <AddShoppingCartRoundedIcon className="icon" />
+                            Add To Cart
+                          </button>
+                        )}
+                      </div>
                       <button
-                        className="wishlist-move-to-cart-btn"
-                        onClick={(e) => handleMoveToCart(e, product)}
+                        className="wishlist-delete-icon"
+                        onClick={(e) => handleRemoveFromWishlist(e, product)}
                       >
-                        <ShoppingCartCheckoutIcon className="icon" />
-                        {cart.some((item) => item._id === product._id)
-                          ? "Already In Cart"
-                          : "Add To Cart"}
+                        <DeleteOutlinedIcon className="delete-icon" />
                       </button>
                     </div>
-                    <button
-                      className="wishlist-delete-icon"
-                      onClick={(e) =>
-                        handleRemoveFromWishlist(e, product)
-                      }
-                    >
-                      <DeleteOutlinedIcon className="delete-icon" />
-                    </button>
                   </div>
-                </div>
-              )
+                )
             )}
           </div>
         )}

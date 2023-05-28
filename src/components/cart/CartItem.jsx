@@ -3,11 +3,11 @@ import { toast } from  "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 import { useCart, useWishlist } from "context";
-import { REMOVE_FROM_CART } from "utils";
 
 const CartItem = ({ product, quantity, setQuantity }) => {
   const navigate = useNavigate();
-  const { cartDispatch } = useCart();
+  
+  const {removeFromCartHandler } = useCart();
   const { wishlistState,addToWishlistHandler } = useWishlist();
   const { wishlist } = wishlistState;
 
@@ -44,11 +44,8 @@ const CartItem = ({ product, quantity, setQuantity }) => {
   // Handle the click on the "Remove" button
   const handleRemoveFromCart = (e) => {
     e.stopPropagation();
-    cartDispatch({
-      type: REMOVE_FROM_CART,
-      payload: product._id,
-    });
-    toast.success("Item removed from cart");
+    removeFromCartHandler(product._id)
+    toast.success(`${product.name} removed from cart`);
   };
 
   const isProductInWishlist = wishlist.some((item) => item._id === product._id);

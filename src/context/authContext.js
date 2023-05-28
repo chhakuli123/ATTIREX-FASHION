@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { loginService, signupService } from "utils";
+import { LOGIN, LOGOUT, loginService, signupService } from "utils";
 
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
@@ -17,14 +17,14 @@ const AuthProvider = ({ children }) => {
 
   const authReducer = (state, action) => {
     switch (action.type) {
-      case "LOGIN":
+      case LOGIN:
         return {
           ...state,
           token: action.payload.token,
           currentUser: action.payload.user,
           isLoggedIn: true,
         };
-      case "LOGOUT":
+      case LOGOUT:
         return {
           ...state,
           token: null,
@@ -56,11 +56,11 @@ const AuthProvider = ({ children }) => {
           JSON.stringify({ user: createdUser, token: encodedToken })
         );
         dispatch({
-          type: "LOGIN",
+          type: LOGIN,
           payload: { user: createdUser, token: encodedToken },
         });
 
-        toast.success(` ${createdUser.firstName}!`, {
+        toast.success(`${createdUser.firstName}!`, {
           icon: "👗",
           message: "Step into the glamorous realm of Attirex Fashion!",
           duration: 5000,
@@ -86,7 +86,7 @@ const AuthProvider = ({ children }) => {
           JSON.stringify({ user: foundUser, token: encodedToken })
         );
         dispatch({
-          type: "LOGIN",
+          type: LOGIN,
           payload: { user: foundUser, token: encodedToken },
         });
         toast.success(`Welcome back, ${foundUser.firstName}!`, {
@@ -102,7 +102,7 @@ const AuthProvider = ({ children }) => {
 
   const logoutHandler = () => {
     localStorage.removeItem("loginDetails");
-    dispatch({ type: "LOGOUT" });
+    dispatch({ type: LOGOUT });
     toast.success("Logged out!");
   };
 

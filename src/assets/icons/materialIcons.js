@@ -20,6 +20,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 export {
   SearchIcon,
   PersonOutlineOutlinedIcon,
@@ -43,4 +44,5 @@ export {
   ErrorOutlineOutlinedIcon,
   RemoveRedEyeOutlinedIcon,
   VisibilityOffOutlinedIcon,
+  RemoveShoppingCartOutlinedIcon,
 };

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 7rem 0;
+  margin: 5rem 0;
 }
 
 .profile-container {
@@ -85,9 +85,6 @@
   right: 7rem;
 }
 @media (max-width: 768px) {
-  .profile-page {
-    margin: 7rem 0;
-  }
   .profile-container {
     padding: 1rem;
   }

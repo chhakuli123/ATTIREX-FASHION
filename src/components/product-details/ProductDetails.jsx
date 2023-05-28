@@ -1,20 +1,20 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import {
+  AddShoppingCartRoundedIcon,
   CheckCircleIcon,
+  FavoriteBorderOutlinedIcon,
+  FavoriteIcon,
   LocalOfferIcon,
   LocalShippingIcon,
+  RemoveShoppingCartOutlinedIcon,
+  ShoppingCartCheckoutIcon,
   StarRoundedIcon,
 } from "assets";
-import {
-  useAuth,
-  useCart,
-  useProductsData,
-  useWishlist,
-} from "context";
-import { ADD_TO_CART } from "utils";
-import { toast } from "react-hot-toast";
+import { useAuth, useCart, useProductsData, useWishlist } from "context";
+
 import "./productdetails.css";
 
 const ProductDetails = () => {
@@ -25,20 +25,32 @@ const ProductDetails = () => {
   const { productsData } = useProductsData();
   const { wishlistState, addToWishlistHandler } = useWishlist();
   const { wishlist } = wishlistState;
-  const { cartState, cartDispatch } = useCart();
+  const { cartState, addToCartHandler } = useCart();
   const { cart } = cartState;
 
   const product = productsData?.find((product) => {
     return product._id === productId;
   });
 
-  const isFavorite = wishlist && wishlist.find((wishlistProduct) => wishlistProduct._id === product._id);
-  const isAddedToCart = cart && cart.find((cartProduct) => cartProduct._id === product._id);
+  const isFavorite =
+    wishlist &&
+    wishlist.find((wishlistProduct) => wishlistProduct._id === product._id);
+  const isAddedToCart =
+    cart && cart.find((cartProduct) => cartProduct._id === product._id);
 
   const handleAddToWishlist = () => {
     if (isLoggedIn) {
       addToWishlistHandler(product);
       toast.success(`${product.name} added to wishlist`);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleAddToCart = () => {
+    if (isLoggedIn) {
+      addToCartHandler(product);
+      toast.success(`${product.name} added to cart`);
     } else {
       navigate("/login");
     }
@@ -86,30 +98,47 @@ const ProductDetails = () => {
             </span>
           </div>
           <div className="product-btn-container">
-            <button className="product-detail-add-to-cart-btn">
-              {isAddedToCart ? (
-                <span onClick={() => navigate("/cart")}>Go To Cart</span>
-              ) : (
-                <span
-                  onClick={() => {
-                    cartDispatch({
-                      type: ADD_TO_CART,
-                      payload: product,
-                    });
-                    toast.success("Added to cart");
-                  }}
-                >
-                  Add To Cart
-                </span>
-              )}
-            </button>
-            {isFavorite ? (
-              <button className="product-detail-add-to-whishlist-btn" onClick={() => navigate("/wishlist")}>
-                Go To Wishlist
+            {isAddedToCart ? (
+              <button
+                className="product-detail-add-to-cart-btn"
+                onClick={() => navigate("/cart")}
+              >
+                <ShoppingCartCheckoutIcon className="icon" />Go To Cart
               </button>
             ) : (
-              <button className="product-detail-add-to-whishlist-btn" onClick={handleAddToWishlist}>
-                Add To Wishlist
+              <button
+                className={`product-detail-add-to-cart-btn${
+                  product.isOutOfStock ? " add-to-cart-btn outofstock" : ""
+                }`}
+                onClick={handleAddToCart}
+                disabled={product.isOutOfStock}
+              >
+                {product.isOutOfStock ? (
+                  <>
+                    <RemoveShoppingCartOutlinedIcon className="icon" /> Out of
+                    Stock
+                  </>
+                ) : (
+                  <>
+                    <AddShoppingCartRoundedIcon className="icon" /> Add To Cart
+                  </>
+                )}
+              </button>
+            )}
+
+            {isFavorite ? (
+              <button
+                className="product-detail-add-to-whishlist-btn"
+                onClick={() => navigate("/wishlist")}
+              >
+              <FavoriteIcon color="error"/>  Go To Wishlist
+              </button>
+            ) : (
+              <button
+                className="product-detail-add-to-whishlist-btn"
+                onClick={handleAddToWishlist}
+              >
+               <FavoriteBorderOutlinedIcon/> Add To Wishlist
               </button>
             )}
           </div>

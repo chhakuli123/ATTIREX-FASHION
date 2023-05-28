@@ -51,4 +51,7 @@ $ npm start
 Checkout the live demo [ATTIREX-FASHION](https://attirex-fashion.netlify.app/)
 
 
+https://github.com/chhakuli123/ATTIREX-FASHION/assets/103095813/9eea0830-7099-4876-b54e-e9dec6373348
+
+
 

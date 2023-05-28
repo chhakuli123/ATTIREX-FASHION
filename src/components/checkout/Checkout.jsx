@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import "./checkout.css";
 import { useCart } from "context";
 import { AddressSelection } from "./AddressSelection";
 import { OrderDetails } from "./OrderDetails";
@@ -9,6 +8,8 @@ import { PriceDetails } from "./PriceDetails";
 import { DeliveryDetails } from "./DeliveryDetails ";
 import { addresses } from "./addresses";
 import { handleCheckout } from "./checkoutLogic";
+
+import "./checkout.css";
 
 const Checkout = () => {
   const { cartState } = useCart();
@@ -52,7 +53,7 @@ const Checkout = () => {
         <div className="right-order-container">
         <OrderDetails cart={cart} quantity={quantity} />
 
-
+        <hr />
         <PriceDetails
             cart={cart}
             totalMrp={totalMrp}
@@ -61,7 +62,7 @@ const Checkout = () => {
             coupon={coupon}
             totalPrice={totalPrice}
           />
-
+         <hr />
           <DeliveryDetails selectedAddress={selectedAddress} />
 
           <div className="place-order-container">

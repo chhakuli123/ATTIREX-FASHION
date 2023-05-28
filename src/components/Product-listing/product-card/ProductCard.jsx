@@ -1,28 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from  "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 import { useAuth, useCart, useWishlist } from "context";
 import {
   AddShoppingCartRoundedIcon,
   FavoriteBorderOutlinedIcon,
   FavoriteIcon,
+  RemoveShoppingCartOutlinedIcon,
   ShoppingCartCheckoutIcon,
   StarRoundedIcon,
 } from "assets";
-import {
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-} from "utils";
+
 import "./productcard.css";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const { wishlistState, removeFromWishlistHandler,addToWishlistHandler } = useWishlist();
+  const {
+    wishlistState,
+    removeFromWishlistHandler,
+    addToWishlistHandler,
+  } = useWishlist();
   const { wishlist } = wishlistState;
-  const { cartState, cartDispatch } = useCart();
+  const { cartState, addToCartHandler } = useCart();
   const { cart } = cartState;
-  const { isLoggedIn } = useAuth(); 
+  const { isLoggedIn } = useAuth();
 
   const {
     _id,
@@ -31,6 +33,7 @@ const ProductCard = ({ product }) => {
     price,
     originalPrice,
     isTrending,
+    isOutOfStock,
     description,
     image,
   } = product;
@@ -39,24 +42,26 @@ const ProductCard = ({ product }) => {
 
   // Check if the product is in the wishlist
   const isFavorite =
-  isLoggedIn && wishlist && wishlist.find((wishlistProduct) => wishlistProduct._id === _id);
+    isLoggedIn &&
+    wishlist &&
+    wishlist.find((wishlistProduct) => wishlistProduct._id === _id);
 
-    const toggleWishlist = (e) => {
-      e.stopPropagation();
-    
-      if (!isLoggedIn) {
-        navigate("/login");
-        return;
-      }
-    
-      if (isFavorite) {
-        removeFromWishlistHandler(_id);
-        toast.success(`${product.name} removed from wishlist`);
-      } else {
-        addToWishlistHandler(product);
-        toast.success(`${product.name} added to wishlist`);
-      }
-    };
+  const toggleWishlist = (e) => {
+    e.stopPropagation();
+
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    if (isFavorite) {
+      removeFromWishlistHandler(_id);
+      toast.success(`${name} removed from wishlist`);
+    } else {
+      addToWishlistHandler(product);
+      toast.success(`${name} added to wishlist`);
+    }
+  };
 
   //--------------For Cart----------------------//
 
@@ -70,16 +75,8 @@ const ProductCard = ({ product }) => {
       navigate("/login");
       return;
     }
-    const actionType = isAddedToCart ? REMOVE_FROM_CART : ADD_TO_CART;
-    const payload = isAddedToCart ? _id : product;
-
-    cartDispatch({
-      type: actionType,
-      payload,
-    });
-
-    const toastMessage = isAddedToCart ? "Removed from cart" : "Added to cart";
-    toast.success(toastMessage);
+    addToCartHandler(product);
+    toast.success(`${name} added to cart`);
   };
 
   return (
@@ -118,7 +115,7 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="product-card-actions">
             {isAddedToCart ? (
-              <span
+              <button
                 className="add-to-cart-btn"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -126,11 +123,20 @@ const ProductCard = ({ product }) => {
                 }}
               >
                 <ShoppingCartCheckoutIcon className="icon" /> Go To Cart
-              </span>
+              </button>
             ) : (
-              <span className="add-to-cart-btn" onClick={toggleCart}>
-                <AddShoppingCartRoundedIcon className="icon" /> Add To Cart
-              </span>
+              <>
+                {isOutOfStock ? (
+                  <button className="add-to-cart-btn outofstock" disabled>
+                    <RemoveShoppingCartOutlinedIcon className="icon" /> Out of
+                    Stock
+                  </button>
+                ) : (
+                  <button className="add-to-cart-btn" onClick={toggleCart}>
+                    <AddShoppingCartRoundedIcon className="icon" /> Add To Cart
+                  </button>
+                )}
+              </>
             )}
           </div>
         </div>
